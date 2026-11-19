@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria Digital | DataDesh Soluções</title>
+    <meta name="description" content="E-books práticos sobre TikTok Shop, IA, gestão, vendas e empreendedorismo. Conhecimento que transforma ideias em possibilidades." />
+    <meta property="og:title" content="Livraria Digital | DataDesh Soluções" />
+    <meta property="og:description" content="E-books práticos sobre TikTok Shop, IA, gestão, vendas e empreendedorismo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/datadeshsolucoes-design/Servicos-digitais/main/logo.jpeg" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #f5f7fb;
+            --surface: #ffffff;
+            --surface-hover: #f1f4f9;
+            --text: #1a2332;
+            --text-light: #5b6b7e;
+            --border: #e2e8f0;
+            --primary: #0f766e;
+            --primary-dark: #0a4f4a;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            --shadow-glow: 0 0 60px rgba(15, 118, 110, 0.06);
+            --radius: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --container: 1200px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        .container { width: min(100% - 32px, var(--container)); margin-inline: auto; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes float3d {
+            0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+            25% { transform: translateY(-10px) rotateX(2deg) rotateY(2deg); }
+            75% { transform: translateY(10px) rotateX(-2deg) rotateY(-2deg); }
+        }
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 40px rgba(15, 118, 110, 0.04); }
+            50% { box-shadow: 0 0 80px rgba(15, 118, 110, 0.10); }
+        }
+        @keyframes tiltIn {
+            0% { opacity: 0; transform: perspective(800px) rotateX(-15deg) rotateY(15deg) translateY(40px); }
+            100% { opacity: 1; transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .reveal-tilt {
+            opacity: 0;
+            transform: perspective(800px) rotateX(-10deg) rotateY(10deg) translateY(30px);
+            transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-tilt.active { opacity: 1; transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0); }
+
+        #particles-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ===================== NAVBAR ===================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+        }
+        .nav-wrap {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+        .brand-mark {
+            width: 44px; height: 44px;
+            border-radius: 14px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(15, 118, 110, 0.15);
+            transition: transform 0.3s ease;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 18px;
+        }
+        .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+        .brand-mark:hover { transform: rotate(-8deg) scale(1.05); }
+        .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+        .brand-text strong { font-size: 1rem; color: var(--text); letter-spacing: -0.02em; }
+        .brand-text span { font-size: 0.7rem; color: var(--text-light); font-weight: 500; }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--primary); }
+        .nav-links a.active::after { width: 100%; }
+
+        .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 24px rgba(15, 118, 110, 0.15);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(15, 118, 110, 0.25);
+        }
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover {
+            background: var(--surface-hover);
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+        .btn-catalogo {
+            background: linear-gradient(135deg, var(--secondary), #6d28d9);
+            color: white;
+            box-shadow: 0 4px 24px rgba(124, 58, 237, 0.15);
+        }
+        .btn-catalogo:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.25);
+        }
+        .btn-glow { animation: glowPulse 3s ease-in-out infinite; }
+
+        .nav-icon-link {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .nav-icon-link:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .menu-toggle {
+            display: none;
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .nav-mobile {
+            display: none;
+            padding: 16px 0 20px;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .nav-mobile.active { display: flex; }
+        .nav-mobile a {
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .nav-mobile a:hover {
+            background: var(--surface-hover);
+            color: var(--text);
+            border-color: var(--primary);
+        }
+
+        /* ===================== HERO ===================== */
+        .hero-ebooks {
+            padding: 70px 0 40px;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg);
+            text-align: center;
+        }
+        .hero-ebooks::before {
+            content: '';
+            position: absolute;
+            top: -30%; right: -10%;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(15, 118, 110, 0.05), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: glowPulse 6s ease-in-out infinite;
+        }
+        .hero-ebooks::after {
+            content: '';
+            position: absolute;
+            bottom: -20%; left: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.05), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: glowPulse 8s ease-in-out infinite reverse;
+        }
+        .hero-ebooks .container { position: relative; z-index: 2; }
+        .hero-ebooks h1 {
+            font-size: clamp(2.2rem, 4vw, 3.6rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+        .hero-ebooks h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-ebooks p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.7;
+        }
+        .hero-ebooks .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        .hero-badge i { color: var(--primary); }
+
+        /* ===================== FILTROS ===================== */
+        .filters-section {
+            padding: 30px 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .filters-bar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .search-wrap {
+            position: relative;
+            width: 100%;
+        }
+        .search-wrap i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .search-input {
+            width: 100%;
+            padding: 14px 18px 14px 46px;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: var(--bg);
+            color: var(--text);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.08);
+            background: var(--surface);
+        }
+        .search-input::placeholder { color: var(--text-light); opacity: 0.6; }
+
+        .category-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 18px;
+            border-radius: 50px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .chip.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 16px rgba(15, 118, 110, 0.2);
+        }
+        .chip i { font-size: 0.75rem; }
+
+        /* ===================== GRID DE E-BOOKS ===================== */
+        .catalog-section {
+            padding: 30px 0 90px;
+            position: relative;
+            z-index: 2;
+        }
+        .catalog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .catalog-header h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+        .catalog-header h2 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .results-count {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .ebooks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .ebook-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            transform-style: preserve-3d;
+            perspective: 600px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+        }
+        .ebook-card:hover {
+            transform: translateY(-8px) rotateX(1.5deg) rotateY(1.5deg);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-glow);
+        }
+        .ebook-card.featured {
+            border: 2px solid var(--accent);
+            box-shadow: 0 8px 32px rgba(245, 158, 11, 0.12);
+        }
+        .ebook-card.featured::before {
+            content: '⭐ DESTAQUE';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, var(--accent), #d97706);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 50px;
+            letter-spacing: 0.05em;
+            z-index: 5;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+        .ebook-card { position: relative; }
+
+        .ebook-cover {
+            aspect-ratio: 3/4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px 20px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-align: left;
+        }
+        .ebook-cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.25) 100%);
+            pointer-events: none;
+        }
+        .cover-style-ferramentas { background: linear-gradient(135deg, #0f766e 0%, #7c3aed 100%); }
+        .cover-style-tiktok { background: linear-gradient(135deg, #7c3aed 0%, #f59e0b 100%); }
+        .cover-style-gestao { background: linear-gradient(135deg, #f59e0b 0%, #0f766e 100%); }
+        .cover-style-empreendedor { background: linear-gradient(135deg, #1a2332 0%, #0f766e 100%); }
+        .cover-style-premium { background: linear-gradient(135deg, #0a0a0a 0%, #1a2332 50%, #7c3aed 100%); }
+        .cover-style-combo {
+            background: linear-gradient(135deg, #0f766e 0%, #7c3aed 50%, #f59e0b 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 6s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .cover-top {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cover-brand {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+        .cover-brand img {
+            width: 18px; height: 18px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+        .cover-icon {
+            font-size: 1.4rem;
+            opacity: 0.7;
+        }
+        .cover-middle {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        .cover-title {
+            font-size: 1.15rem;
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .cover-subtitle {
+            font-size: 0.7rem;
+            font-weight: 500;
+            opacity: 0.85;
+            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cover-bottom {
+            position: relative;
+            z-index: 2;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0.85;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cover-combo-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.6rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .ebook-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
+        .ebook-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--primary);
+            background: rgba(15, 118, 110, 0.06);
+            padding: 4px 10px;
+            border-radius: 50px;
+            align-self: flex-start;
+        }
+        .ebook-info h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+        .ebook-short {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .ebook-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 8px;
+        }
+        .price-old {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+            font-weight: 500;
+        }
+        .price-new {
+            font-size: 1.4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .ebook-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .btn-details {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 11px 16px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-family: inherit;
+        }
+        .btn-details:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(15, 118, 110, 0.25);
+        }
+
+        /* ===================== ESTADO VAZIO ===================== */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--surface);
+            border: 2px dashed var(--border);
+            border-radius: var(--radius-lg);
+        }
+        .empty-state i {
+            font-size: 3rem;
+            color: var(--text-light);
+            opacity: 0.4;
+            margin-bottom: 16px;
+        }
+        .empty-state h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .empty-state p { color: var(--text-light); font-size: 0.9rem; }
+
+        /* ===================== MODAL ===================== */
+        .modal-ebook {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(12px);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .modal-ebook.active { display: flex; }
+
+        .modal-ebook-content {
+            background: var(--surface);
+            border-radius: var(--radius-xl);
+            width: 100%;
+            max-width: 920px;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 10;
+            display: grid;
+            place-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        .modal-close:hover {
+            background: var(--surface);
+            transform: rotate(90deg);
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            min-height: 500px;
+        }
+        .modal-cover-side {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: var(--bg);
+            border-right: 1px solid var(--border);
+        }
+        .modal-cover {
+            aspect-ratio: 3/4;
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px 20px;
+            color: white;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        .modal-cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.25) 100%);
+            pointer-events: none;
+        }
+        .modal-cover .cover-middle { padding: 20px 0; }
+        .modal-cover .cover-title { font-size: 1.5rem; }
+        .modal-cover .cover-subtitle { font-size: 0.8rem; }
+
+        .modal-price-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            text-align: center;
+        }
+        .modal-price-box .price-old {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+        .modal-price-box .price-new {
+            display: block;
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            margin: 4px 0;
+        }
+        .modal-price-box small {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            display: block;
+        }
+
+        .modal-info-side {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .modal-info-side .ebook-category { align-self: flex-start; }
+        .modal-info-side h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+        .modal-full-desc {
+            font-size: 0.98rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        .modal-section-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .modal-section-title i { color: var(--primary); }
+        .modal-benefits {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+        }
+        .modal-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        .modal-benefits li i {
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: rgba(15, 118, 110, 0.08);
+            color: var(--primary);
+            display: grid;
+            place-items: center;
+            font-size: 9px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 14px;
+            background: var(--bg);
+            border-radius: var(--radius);
+        }
+        .modal-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+        .modal-meta-item i { color: var(--primary); }
+
+        .btn-buy {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 28px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(15, 118, 110, 0.2);
+            font-family: inherit;
+            width: 100%;
+        }
+        .btn-buy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(15, 118, 110, 0.3);
+        }
+        .modal-disclaimer {
+            font-size: 0.72rem;
+            color: var(--text-light);
+            text-align: center;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
+
+        /* ===================== FOOTER ===================== */
+        .footer {
+            background: white;
+            border-top: 1px solid var(--border);
+            padding: 48px 0 28px;
+            position: relative;
+            z-index: 2;
+        }
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr;
+            gap: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .footer-brand h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+        .footer-brand p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+        .footer-brand p strong { color: var(--text); }
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+        .footer-links a,
+        .footer-contact a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 4px 0;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover,
+        .footer-contact a:hover { color: var(--primary); }
+        .footer-contact a i { width: 24px; margin-right: 8px; }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 28px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .footer-social a {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            display: grid;
+            place-items: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer-social a:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        /* ===================== FLOATS ===================== */
+        .whatsapp-float {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 12px 36px rgba(37, 211, 102, 0.35);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+        .whatsapp-float:hover { transform: scale(1.1) translateY(-4px); }
+
+        /* ===================== RESPONSIVO ===================== */
+        @media (max-width: 1100px) {
+            .footer-top { grid-template-columns: 1fr 1fr; }
+            .modal-grid { grid-template-columns: 280px 1fr; }
+            .modal-cover-side { padding: 24px; }
+            .modal-info-side { padding: 32px; }
+        }
+        @media (max-width: 860px) {
+            .nav-links, .nav-actions .desktop-only { display: none; }
+            .menu-toggle { display: grid; place-items: center; }
+            .modal-grid { grid-template-columns: 1fr; }
+            .modal-cover-side {
+                padding: 24px;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                flex-direction: row;
+                align-items: center;
+                gap: 16px;
+            }
+            .modal-cover { width: 120px; flex-shrink: 0; }
+            .modal-cover .cover-middle { padding: 8px 0; }
+            .modal-cover .cover-title { font-size: 0.85rem; }
+            .modal-cover .cover-subtitle { font-size: 0.55rem; }
+            .modal-cover .cover-brand { font-size: 0.5rem; }
+            .modal-cover .cover-brand img { width: 14px; height: 14px; }
+            .modal-cover .cover-icon { font-size: 1rem; }
+            .modal-cover-side .modal-price-box { flex: 1; padding: 12px; }
+            .modal-price-box .price-new { font-size: 1.5rem; }
+            .modal-info-side { padding: 24px; }
+            .modal-info-side h2 { font-size: 1.4rem; }
+        }
+        @media (max-width: 640px) {
+            .footer-top { grid-template-columns: 1fr; }
+            .hero-ebooks { padding: 50px 0 30px; }
+            .ebooks-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+            .filters-bar { padding: 16px; }
+            .modal-info-side { padding: 20px; }
+            .modal-cover-side { padding: 16px; }
+            .modal-cover { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particles-canvas"></canvas>
+
+   <!-- ===================== NAVBAR ===================== -->
+<header class="navbar" id="navbar">
+    <div class="container">
+        <div class="nav-wrap">
+            <a href="https://datadeshsolucoes-design.github.io/Servicos-digitais/" class="brand">
+                <div class="brand-mark">
+                    <img src="https://raw.githubusercontent.com/datadeshsolucoes-design/Servicos-digitais/main/logo.jpeg" alt="DataDesh Soluções Logo">
+                </div>
+                <div class="brand-text">
+                    <strong>DataDesh Soluções</strong>
+                    <span>Livraria Digital</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#catalogo" class="active">E-books</a></li>
+                <li><a href="https://datadeshsolucoes-design.github.io/Servicos-digitais/">DataDesh Site</a></li>
+                <li><a href="https://datadeshsolucoes-design.github.io/catalago-sem-precos-DataDesh/" target="_blank" rel="noopener">Catálogo de Serviços</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a class="nav-icon-link desktop-only" href="https://www.instagram.com/datadeshsolucoesdigitais/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-primary desktop-only btn-glow" href="https://wa.me/5531984987116" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Fale comigo</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="nav-mobile" id="mobileMenu">
+            <a href="#catalogo">E-books</a>
+            <a href="https://datadeshsolucoes-design.github.io/Servicos-digitais/">DataDesh Site</a>
+            <a href="https://datadeshsolucoes-design.github.io/catalago-sem-precos-DataDesh/" target="_blank" rel="noopener">Catálogo de Serviços</a>
+            <a href="https://wa.me/5531984987116" target="_blank" style="border-color: var(--primary); color: var(--primary);"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+        </div>
+    </div>
+</header>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero-ebooks">
+        <div class="container">
+            <div class="section-kicker reveal" style="display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border-radius:999px; background:rgba(15,118,110,0.06); border:1px solid rgba(15,118,110,0.1); color:var(--primary); font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px;">
+                <i class="fa-solid fa-book-open"></i> Livraria Digital DataDesh
+            </div>
+            <h1 class="reveal">Conhecimento que transforma <span class="highlight">ideias em possibilidades</span></h1>
+            <p class="reveal">Explore nossa biblioteca digital e encontre materiais práticos para aprender, evoluir e descobrir novas oportunidades. E-books sobre TikTok Shop, IA, gestão, vendas e empreendedorismo.</p>
+            <div class="hero-actions reveal">
+                <a href="#catalogo" class="btn btn-primary btn-glow"><i class="fa-solid fa-book"></i> Explorar E-books</a>
+                <a href="https://wa.me/5531984987116" class="btn btn-secondary" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Tirar dúvidas</a>
+            </div>
+            <div class="hero-badges reveal">
+                <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Acesso imediato</span>
+                <span class="hero-badge"><i class="fa-solid fa-file-pdf"></i> Formato PDF</span>
+                <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Compra segura</span>
+                <span class="hero-badge"><i class="fa-solid fa-star"></i> Conteúdo prático</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FILTROS ===================== -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-bar reveal">
+                <div class="search-wrap">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Buscar e-book por nome...">
+                </div>
+                <div class="category-chips" id="categoryChips">
+                    <!-- Preenchido via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CATÁLOGO ===================== -->
+    <section class="catalog-section" id="catalogo">
+        <div class="container">
+            <div class="catalog-header">
+                <h2>Nossa <span>biblioteca</span></h2>
+                <span class="results-count" id="resultsCount">Carregando...</span>
+            </div>
+            <div class="ebooks-grid" id="ebooksGrid">
+                <!-- Cards renderizados via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MODAL ===================== -->
+    <div class="modal-ebook" id="ebookModal">
+        <div class="modal-ebook-content">
+            <button class="modal-close" id="modalClose" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-grid" id="modalContent">
+                <!-- Preenchido via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h4>DataDesh Soluções</h4>
+                    <p>Soluções digitais personalizadas para pequenos negócios. Livraria digital com e-books práticos sobre TikTok Shop, IA, gestão, vendas e empreendedorismo.</p>
+                    <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 8px;">
+                        <strong>CNPJ:</strong> 66.884.261/0001-20
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links rápidos</h4>
+                    <a href="https://datadeshsolucoes-design.github.io/Servicos-digitais/">Início</a>
+                    <a href="#catalogo">E-books</a>
+                    <a href="https://datadeshsolucoes-design.github.io/catalago-sem-precos-DataDesh/" target="_blank" rel="noopener">Catálogo Completo</a>
+                    <a href="https://wa.me/5531984987116" target="_blank" rel="noopener">Suporte</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <a href="https://wa.me/5531984987116" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a>
+                    <a href="mailto:datadshsolucoes@gmail.com"><i class="fa-regular fa-envelope"></i> datadshsolucoes@gmail.com</a>
+                    <a href="https://www.instagram.com/datadeshsolucoesdigitais/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> @datadeshsolucoesdigitais</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/datadeshsolucoesdigitais/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5531984987116" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:datadshsolucoes@gmail.com" aria-label="E-mail"><i class="fa-regular fa-envelope"></i></a>
+                </div>
+                <p>© 2026 DataDesh Soluções - Ana | CNPJ: 66.884.261/0001-20 | Todos os direitos reservados</p>
+                <p style="font-size: 0.72rem; opacity: 0.7; margin-top: 6px;">Material educacional. Não garantimos resultados financeiros, aprovação em plataformas ou vendas. Consulte os termos de cada produto.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===================== FLOATS ===================== -->
+    <a href="https://wa.me/5531984987116" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- ===================== SCRIPT (PARTE 2) ===================== -->
+    <script>
+
+
+        const ebooks = [
+            // ══════════════════════════════════════════════════════
+            // FERRAMENTAS & MARKETING
+            // ══════════════════════════════════════════════════════
+            {
+                id: 1,
+                titulo: "Inteligência Artificial para Pequenos Negócios",
+                categoria: "Ferramentas",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Use IA para economizar tempo, criar conteúdo e atender melhor seus clientes — sem precisar ser especialista.",
+                descLonga: "Um guia prático para pequenos negócios que querem usar a Inteligência Artificial no dia a dia sem complicação. Você vai aprender quais ferramentas realmente valem a pena, como aplicar IA em tarefas do negócio (atendimento, conteúdo, organização, precificação) e como evitar erros comuns. Linguagem acessível, exemplos reais e passo a passo para começar hoje.",
+                beneficios: [
+                    "Ferramentas de IA gratuitas e pagas comparadas",
+                    "Aplicações práticas para atendimento, conteúdo e gestão",
+                    "Passo a passo para começar sem experiência técnica",
+                    "Erros comuns a evitar e boas práticas de uso"
+                ],
+                icone: "fa-solid fa-robot",
+                capa: "ferramentas",
+                subtitulo: "Guia prático",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 2,
+                titulo: "Instagram que Vende",
+                categoria: "Ferramentas",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Transforme seu perfil em uma vitrine que atrai, engaja e converte seguidores em clientes.",
+                descLonga: "Um guia completo para quem quer usar o Instagram de forma estratégica e vender de verdade. Você vai aprender a estruturar o perfil, criar conteúdo que atrai o público certo, usar stories e reels com intenção comercial, construir autoridade e transformar seguidores em clientes. Sem fórmulas mágicas, sem promessas irreais — só o que funciona.",
+                beneficios: [
+                    "Estrutura de perfil que converte visitas em seguidores",
+                    "Ideias de conteúdo para stories, reels e feed",
+                    "Estratégias de engajamento e construção de autoridade",
+                    "Como transformar seguidores em clientes reais"
+                ],
+                icone: "fa-brands fa-instagram",
+                capa: "ferramentas",
+                subtitulo: "Estratégia & Vendas",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 3,
+                titulo: "WhatsApp Business para Empreendedores",
+                categoria: "Ferramentas",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Organize atendimentos, automatize respostas e venda mais usando o WhatsApp Business do jeito certo.",
+                descLonga: "O WhatsApp é a ferramenta de vendas mais usada no Brasil — mas a maioria dos empreendedores usa só uma fração do que ela oferece. Este guia mostra como configurar o WhatsApp Business corretamente, criar catálogo, usar etiquetas, respostas rápidas, mensagens automáticas e listas de transmissão. Também aborda boas práticas de atendimento, etiqueta digital e como evitar bloqueios.",
+                beneficios: [
+                    "Configuração completa do WhatsApp Business",
+                    "Catálogo, etiquetas e respostas rápidas",
+                    "Automações e listas de transmissão",
+                    "Boas práticas para evitar bloqueios e vender mais"
+                ],
+                icone: "fa-brands fa-whatsapp",
+                capa: "ferramentas",
+                subtitulo: "Atendimento & Vendas",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 4,
+                titulo: "YouTube do Zero para Empreendedores",
+                categoria: "Ferramentas",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Crie seu canal, produza vídeos com propósito e use o YouTube para atrair clientes e construir autoridade.",
+                descLonga: "Um guia para empreendedores que querem começar no YouTube sem depender de equipamentos caros ou de anos de experiência. Você vai aprender a definir seu nicho, estruturar o canal, roteirizar vídeos, gravar com o celular, editar de forma simples, publicar com SEO básico e transformar visualizações em oportunidades de negócio.",
+                beneficios: [
+                    "Estrutura de canal e posicionamento de nicho",
+                    "Roteiro, gravação e edição com o celular",
+                    "SEO básico para YouTube",
+                    "Como transformar audiência em clientes"
+                ],
+                icone: "fa-brands fa-youtube",
+                capa: "ferramentas",
+                subtitulo: "Conteúdo & Autoridade",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 5,
+                titulo: "Canva para Empreendedores",
+                categoria: "Ferramentas",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Crie artes profissionais para redes sociais, catálogos e materiais de venda — sem precisar de designer.",
+                descLonga: "O Canva é a ferramenta de design mais acessível para quem não é designer. Neste guia, você aprende a criar artes profissionais para Instagram, WhatsApp, catálogos, apresentações, capas de e-book e materiais de venda. Inclui dicas de composição, tipografia, paleta de cores, uso de templates e como manter uma identidade visual consistente.",
+                beneficios: [
+                    "Fundamentos de design aplicados ao Canva",
+                    "Templates para redes sociais, catálogos e e-books",
+                    "Paleta de cores e tipografia profissional",
+                    "Identidade visual consistente para sua marca"
+                ],
+                icone: "fa-solid fa-palette",
+                capa: "ferramentas",
+                subtitulo: "Design sem complicação",
+                destaque: false,
+                link: "#"
+            },
+
+            // ══════════════════════════════════════════════════════
+            // TIKTOK SHOP
+            // ══════════════════════════════════════════════════════
+            {
+                id: 6,
+                titulo: "Como Abrir sua Loja no TikTok Shop",
+                categoria: "TikTok Shop",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Do cadastro de vendedor ao primeiro produto publicado. Guia ilustrado passo a passo.",
+                descLonga: "Guia ilustrado que acompanha toda a jornada para abrir uma loja como vendedor no TikTok Shop Brasil: entender se você pode se cadastrar, separar documentos, criar a conta no Seller Center, configurar a operação, cadastrar produtos, preparar o envio dos pedidos e lidar com o pós-venda. Material independente e educacional, atualizado com referências oficiais.",
+                beneficios: [
+                    "Passo a passo do cadastro no Seller Center",
+                    "Checklist de documentos e requisitos",
+                    "Configuração de logística, banco e pagamentos",
+                    "Cadastro do primeiro produto com fotos e descrição"
+                ],
+                icone: "fa-solid fa-store",
+                capa: "tiktok",
+                subtitulo: "Guia ilustrado",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 7,
+                titulo: "TikTok Monetização — E-book Completo",
+                categoria: "TikTok Shop",
+                preco: 29.98,
+                precoOld: 49.90,
+                descCurta: "O guia mais completo para transformar o TikTok em uma fonte real de renda — do zero à monetização.",
+                descLonga: "Este é o material mais completo da nossa linha TikTok. Ele reúne tudo o que você precisa para entender como funciona a monetização no TikTok, quais programas existem, como se qualificar, quais estratégias realmente funcionam e como construir uma audiência que gera renda consistente. Inclui planos de ação, cronogramas, exemplos práticos e erros a evitar. Ideal para quem quer tratar o TikTok como negócio sério.",
+                beneficios: [
+                    "Panorama completo dos programas de monetização",
+                    "Estratégias de crescimento orgânico",
+                    "Plano de ação de 30 dias",
+                    "Erros comuns e como evitá-los"
+                ],
+                icone: "fa-solid fa-sack-dollar",
+                capa: "tiktok",
+                subtitulo: "Guia completo",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 8,
+                titulo: "TikTok Shop: Vídeos que Vendem",
+                categoria: "TikTok Shop",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Aprenda a criar vídeos que realmente convertem dentro do TikTok Shop — do roteiro à edição.",
+                descLonga: "Um guia focado na produção de vídeos que vendem dentro do TikTok Shop. Você vai aprender a estruturar roteiros com gancho, escolher os formatos que mais convertem, gravar com o celular, editar de forma simples, usar produtos marcados corretamente e analisar métricas para melhorar seus resultados. Inclui exemplos de estruturas de vídeo prontas para adaptar.",
+                beneficios: [
+                    "Estruturas de roteiro que prendem atenção",
+                    "Formatos de vídeo que mais convertem",
+                    "Gravação e edição com o celular",
+                    "Análise de métricas e otimização"
+                ],
+                icone: "fa-solid fa-video",
+                capa: "tiktok",
+                subtitulo: "Vídeos & Conversão",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 9,
+                titulo: "TikTok Shop: do 0 ao Lucro",
+                categoria: "TikTok Shop",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "O caminho completo para começar do zero no TikTok Shop e construir uma operação lucrativa.",
+                descLonga: "Um guia que cobre toda a jornada de quem quer começar do zero no TikTok Shop: escolha de nicho, seleção de produtos, configuração da loja, criação de conteúdo, estratégias de venda, gestão de pedidos e análise de resultados. Linguagem direta, com exemplos práticos e um plano de execução para os primeiros 30 dias.",
+                beneficios: [
+                    "Escolha de nicho e seleção de produtos",
+                    "Configuração completa da operação",
+                    "Estratégias de conteúdo e vendas",
+                    "Plano de execução de 30 dias"
+                ],
+                icone: "fa-solid fa-rocket",
+                capa: "tiktok",
+                subtitulo: "Do zero ao lucro",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 10,
+                titulo: "TikTok Shop: Live que Vende",
+                categoria: "TikTok Shop",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Domine as lives de venda no TikTok Shop: preparação, roteiro, ofertas e pós-live.",
+                descLonga: "As lives são uma das formas mais poderosas de vender no TikTok Shop — mas exigem preparação. Este guia mostra como planejar sua live, estruturar o roteiro, configurar os produtos, criar ofertas irresistíveis, manter o público engajado, lidar com imprevistos e fazer o pós-live de forma profissional. Inclui checklists e exemplos de script.",
+                beneficios: [
+                    "Planejamento e roteiro de live",
+                    "Configuração de produtos e ofertas",
+                    "Técnicas de engajamento ao vivo",
+                    "Pós-live: análise e próximos passos"
+                ],
+                icone: "fa-solid fa-tower-broadcast",
+                capa: "tiktok",
+                subtitulo: "Lives & Vendas",
+                destaque: false,
+                link: "#"
+            },
+
+            // ══════════════════════════════════════════════════════
+            // GESTÃO E VENDAS
+            // ══════════════════════════════════════════════════════
+            {
+                id: 11,
+                titulo: "Gestão Financeira para Pequenos Negócios",
+                categoria: "Gestão e Vendas",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Organize as finanças do seu negócio, entenda seus números e tome decisões com segurança.",
+                descLonga: "Um guia prático para quem precisa organizar as finanças do pequeno negócio sem depender de contador para tudo. Você vai aprender a separar pessoal de empresarial, controlar fluxo de caixa, precificar corretamente, entender margem e lucro, planejar gastos e tomar decisões com base em números reais. Inclui planilhas-modelo e checklists.",
+                beneficios: [
+                    "Separação de finanças pessoais e empresariais",
+                    "Controle de fluxo de caixa simplificado",
+                    "Precificação correta e cálculo de margem",
+                    "Planejamento financeiro e metas"
+                ],
+                icone: "fa-solid fa-chart-pie",
+                capa: "gestao",
+                subtitulo: "Finanças & Controle",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 12,
+                titulo: "Como Vender Mais: Técnicas de Vendas",
+                categoria: "Gestão e Vendas",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Técnicas práticas de vendas para pequenos negócios que querem aumentar o ticket e converter mais.",
+                descLonga: "Um guia direto sobre técnicas de vendas aplicáveis a pequenos negócios: como abordar o cliente, identificar necessidades, apresentar a oferta, lidar com objeções, fechar a venda e construir relacionamento para recompra. Sem teorias rebuscadas — só o que funciona no dia a dia de quem vende produtos ou serviços.",
+                beneficios: [
+                    "Abordagem e identificação de necessidades",
+                    "Apresentação de oferta e quebra de objeções",
+                    "Técnicas de fechamento",
+                    "Pós-venda e fidelização"
+                ],
+                icone: "fa-solid fa-handshake",
+                capa: "gestao",
+                subtitulo: "Técnicas & Conversão",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 13,
+                titulo: "Plano de Negócios Simples: Da Ideia à Primeira Venda",
+                categoria: "Gestão e Vendas",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Transforme sua ideia em um plano de negócios simples e executável — até a primeira venda real.",
+                descLonga: "Um guia para quem tem uma ideia mas não sabe como tirá-la do papel. Você vai aprender a validar a ideia, definir público e proposta de valor, estruturar um plano de negócios simples, calcular investimento inicial, planejar o lançamento e fazer a primeira venda. Inclui modelo de plano e checklist de validação.",
+                beneficios: [
+                    "Validação de ideia e proposta de valor",
+                    "Estrutura de plano de negócios simplificado",
+                    "Cálculo de investimento inicial",
+                    "Plano de lançamento e primeira venda"
+                ],
+                icone: "fa-solid fa-clipboard-check",
+                capa: "gestao",
+                subtitulo: "Da ideia à execução",
+                destaque: false,
+                link: "#"
+            },
+
+            // ══════════════════════════════════════════════════════
+            // COMECE SEU NEGÓCIO
+            // ══════════════════════════════════════════════════════
+            {
+                id: 14,
+                titulo: "50 Negócios para Começar com Pouco Dinheiro",
+                categoria: "Comece Seu Negócio",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "50 ideias de negócios que exigem pouco investimento inicial — com análise de viabilidade e primeiros passos.",
+                descLonga: "Um guia com 50 ideias de negócios que podem ser iniciados com pouco dinheiro, organizadas por área de atuação. Para cada ideia, apresentamos uma breve descrição, investimento inicial estimado, nível de dificuldade, potenciais clientes e os primeiros passos práticos. Ideal para quem quer empreender sem arriscar muito e ainda está escolhendo o caminho.",
+                beneficios: [
+                    "50 ideias organizadas por área",
+                    "Investimento inicial estimado por ideia",
+                    "Nível de dificuldade e potencial de mercado",
+                    "Primeiros passos práticos para cada uma"
+                ],
+                icone: "fa-solid fa-lightbulb",
+                capa: "empreendedor",
+                subtitulo: "50 ideias práticas",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 15,
+                titulo: "Marketing de Afiliados do Zero",
+                categoria: "Comece Seu Negócio",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Aprenda a ganhar comissões promovendo produtos de outros — do zero e com estratégia.",
+                descLonga: "Um guia introdutório sobre marketing de afiliados para quem quer começar a ganhar dinheiro promovendo produtos de terceiros. Você vai aprender como funciona o modelo, como escolher plataformas e produtos, como divulgar de forma ética, como criar conteúdo de recomendação e como acompanhar resultados. Inclui dicas de transparência e boas práticas.",
+                beneficios: [
+                    "Como funciona o marketing de afiliados",
+                    "Escolha de plataformas e produtos",
+                    "Estratégias de divulgação ética",
+                    "Acompanhamento de resultados e métricas"
+                ],
+                icone: "fa-solid fa-link",
+                capa: "empreendedor",
+                subtitulo: "Renda extra",
+                destaque: false,
+                link: "#"
+            },
+
+            // ══════════════════════════════════════════════════════
+            // DESTAQUE — IA 2026
+            // ══════════════════════════════════════════════════════
+            {
+                id: 16,
+                titulo: "Como Ganhar Dinheiro com IA em 2026",
+                categoria: "Destaque",
+                preco: 15.98,
+                precoOld: 39.90,
+                descCurta: "O guia estratégico para transformar ferramentas de IA em serviços, produtos e negócios lucrativos.",
+                descLonga: "Este é o nosso material mais denso e estratégico. Um guia completo sobre como transformar Inteligência Artificial em fonte de renda em 2026, cobrindo: a economia da IA, as melhores oportunidades de mercado, prestação de serviços com IA, automação para empresas, criação de conteúdo, produtos digitais, aplicação em e-commerce, ferramentas essenciais, captação de clientes, precificação, montagem de operação profissional, riscos e cuidados, plano de execução de 30 dias, estudos de caso reais e 30 prompts profissionais prontos para usar. Escrito com base em fontes oficiais e dados atualizados.",
+                beneficios: [
+                    "15 capítulos cobrindo todo o ecossistema da IA",
+                    "30 prompts profissionais prontos para usar",
+                    "Plano de execução de 30 dias",
+                    "Estudos de caso e checklists operacionais"
+                ],
+                icone: "fa-solid fa-brain",
+                capa: "premium",
+                subtitulo: "Guia estratégico 2026",
+                destaque: true,
+                link: "#"
+            },
+
+            // ══════════════════════════════════════════════════════
+            // COMBO TIKTOK
+            // ══════════════════════════════════════════════════════
+            {
+                id: 17,
+                titulo: "Combo TikTok Shop Completo",
+                categoria: "Combo",
+                preco: 59.98,
+                precoOld: 79.90,
+                descCurta: "Os 5 e-books de TikTok Shop juntos por um preço especial — economia real de R$ 19,92.",
+                descLonga: "Este combo reúne os 5 e-books da linha TikTok Shop da DataDesh: Como Abrir sua Loja no TikTok Shop, TikTok Monetização Completo, Vídeos que Vendem, do 0 ao Lucro e Live que Vende. Comprando juntos, você economiza R$ 19,92 em relação à compra individual e tem acesso a todo o ecossistema de conhecimento necessário para vender no TikTok Shop — do cadastro inicial à monetização avançada.",
+                beneficios: [
+                    "Os 5 e-books de TikTok Shop em um só pacote",
+                    "Economia real de R$ 19,92",
+                    "Do cadastro à monetização avançada",
+                    "Acesso imediato a todo o conteúdo"
+                ],
+                icone: "fa-solid fa-gift",
+                capa: "combo",
+                subtitulo: "5 e-books em 1",
+                destaque: false,
+                link: "#"
+            }
+        ];
+
+        // ============================================================
+        // CONFIGURAÇÃO
+        // ============================================================
+        const LOGO_URL = "https://raw.githubusercontent.com/datadeshsolucoes-design/Servicos-digitais/main/logo.jpeg";
+
+        const CATEGORIAS = [
+            { key: "Todas", label: "Todas", icon: "fa-solid fa-layer-group" },
+            { key: "Destaque", label: "Destaque", icon: "fa-solid fa-star" },
+            { key: "Ferramentas", label: "Ferramentas", icon: "fa-solid fa-toolbox" },
+            { key: "TikTok Shop", label: "TikTok Shop", icon: "fa-brands fa-tiktok" },
+            { key: "Gestão e Vendas", label: "Gestão e Vendas", icon: "fa-solid fa-chart-line" },
+            { key: "Comece Seu Negócio", label: "Comece Seu Negócio", icon: "fa-solid fa-rocket" },
+            { key: "Combo", label: "Combos", icon: "fa-solid fa-gift" }
+        ];
+
+        // ============================================================
+        // ESTADO
+        // ============================================================
+        let categoriaAtiva = "Todas";
+        let termoBusca = "";
+
+        // ============================================================
+        // HELPERS
+        // ============================================================
+        function formatarPreco(valor) {
+            return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+        }
+
+        function capaClasse(capa) {
+            return "cover-style-" + capa;
+        }
+
+        // ============================================================
+        // RENDERIZAR CHIPS DE CATEGORIA
+        // ============================================================
+        function renderizarChips() {
+            const container = document.getElementById("categoryChips");
+            container.innerHTML = "";
+            CATEGORIAS.forEach(cat => {
+                const chip = document.createElement("button");
+                chip.className = "chip" + (categoriaAtiva === cat.key ? " active" : "");
+                chip.innerHTML = `<i class="${cat.icon}"></i> ${cat.label}`;
+                chip.addEventListener("click", () => {
+                    categoriaAtiva = cat.key;
+                    renderizarChips();
+                    renderizarCards();
+                });
+                container.appendChild(chip);
+            });
+        }
+
+        // ============================================================
+        // RENDERIZAR CARDS
+        // ============================================================
+        function renderizarCards() {
+            const grid = document.getElementById("ebooksGrid");
+            const countEl = document.getElementById("resultsCount");
+
+            let filtrados = ebooks.filter(eb => {
+                const matchCategoria = categoriaAtiva === "Todas" || eb.categoria === categoriaAtiva;
+                const matchBusca = termoBusca === "" ||
+                    eb.titulo.toLowerCase().includes(termoBusca.toLowerCase()) ||
+                    eb.descCurta.toLowerCase().includes(termoBusca.toLowerCase());
+                return matchCategoria && matchBusca;
+            });
+
+            countEl.textContent = filtrados.length + (filtrados.length === 1 ? " e-book encontrado" : " e-books encontrados");
+
+            if (filtrados.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h3>Nenhum e-book encontrado</h3>
+                        <p>Tente outra busca ou selecione outra categoria.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = "";
+            filtrados.forEach(eb => {
+                const card = document.createElement("article");
+                card.className = "ebook-card" + (eb.destaque ? " featured" : "");
+
+                const precoOldHTML = eb.precoOld
+                    ? `<span class="price-old">${formatarPreco(eb.precoOld)}</span>`
+                    : "";
+
+                card.innerHTML = `
+                    <div class="ebook-cover ${capaClasse(eb.capa)}">
+                        <div class="cover-top">
+                            <div class="cover-brand">
+                                <img src="${LOGO_URL}" alt="DataDesh" loading="lazy">
+                                DataDesh
+                            </div>
+                            <i class="${eb.icone} cover-icon"></i>
+                        </div>
+                        <div class="cover-middle">
+                            <div class="cover-title">${eb.titulo}</div>
+                            <div class="cover-subtitle">${eb.subtitulo}</div>
+                        </div>
+                        <div class="cover-bottom">
+                            <span>E-book • PDF</span>
+                            ${eb.capa === "combo" ? `<span class="cover-combo-badge">COMBO</span>` : ""}
+                        </div>
+                    </div>
+                    <div class="ebook-info">
+                        <span class="ebook-category"><i class="fa-solid fa-tag"></i> ${eb.categoria}</span>
+                        <h3>${eb.titulo}</h3>
+                        <p class="ebook-short">${eb.descCurta}</p>
+                        <div class="ebook-price-row">
+                            ${precoOldHTML}
+                            <span class="price-new">${formatarPreco(eb.preco)}</span>
+                        </div>
+                        <div class="ebook-actions">
+                            <button class="btn-details" data-id="${eb.id}">
+                                <i class="fa-regular fa-eye"></i> Ver detalhes
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                card.querySelector(".btn-details").addEventListener("click", () => abrirModal(eb.id));
+                grid.appendChild(card);
+            });
+        }
+
+        // ============================================================
+        // MODAL
+        // ============================================================
+        function abrirModal(id) {
+            const eb = ebooks.find(e => e.id === id);
+            if (!eb) return;
+
+            const modal = document.getElementById("ebookModal");
+            const content = document.getElementById("modalContent");
+
+            const precoOldHTML = eb.precoOld
+                ? `<span class="price-old">De ${formatarPreco(eb.precoOld)}</span>`
+                : "";
+
+            const beneficiosHTML = eb.beneficios
+                .map(b => `<li><i class="fa-solid fa-check"></i> ${b}</li>`)
+                .join("");
+
+            content.innerHTML = `
+                <div class="modal-cover-side">
+                    <div class="modal-cover ${capaClasse(eb.capa)}">
+                        <div class="cover-top">
+                            <div class="cover-brand">
+                                <img src="${LOGO_URL}" alt="DataDesh">
+                                DataDesh
+                            </div>
+                            <i class="${eb.icone} cover-icon"></i>
+                        </div>
+                        <div class="cover-middle">
+                            <div class="cover-title">${eb.titulo}</div>
+                            <div class="cover-subtitle">${eb.subtitulo}</div>
+                        </div>
+                        <div class="cover-bottom">
+                            <span>E-book • PDF</span>
+                            ${eb.capa === "combo" ? `<span class="cover-combo-badge">COMBO</span>` : ""}
+                        </div>
+                    </div>
+                    <div class="modal-price-box">
+                        ${precoOldHTML}
+                        <span class="price-new">${formatarPreco(eb.preco)}</span>
+                        <small>Pagamento único • Acesso imediato</small>
+                    </div>
+                </div>
+                <div class="modal-info-side">
+                    <span class="ebook-category"><i class="fa-solid fa-tag"></i> ${eb.categoria}</span>
+                    <h2>${eb.titulo}</h2>
+                    <p class="modal-full-desc">${eb.descLonga}</p>
+
+                    <div>
+                        <div class="modal-section-title"><i class="fa-solid fa-circle-check"></i> O que você vai encontrar</div>
+                        <ul class="modal-benefits">
+                            ${beneficiosHTML}
+                        </ul>
+                    </div>
+
+                    <div class="modal-meta">
+                        <span class="modal-meta-item"><i class="fa-solid fa-file-pdf"></i> Formato PDF</span>
+                        <span class="modal-meta-item"><i class="fa-solid fa-bolt"></i> Acesso imediato</span>
+                        <span class="modal-meta-item"><i class="fa-solid fa-shield-halved"></i> Compra segura</span>
+                    </div>
+
+                    <a href="${eb.link}" class="btn-buy" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-cart-shopping"></i> Comprar agora
+                    </a>
+
+                    <p class="modal-disclaimer">
+                        Material educacional. Os resultados variam conforme aplicação individual. Não garantimos vendas, aprovação em plataformas ou renda. Consulte os termos antes de comprar.
+                    </p>
+                </div>
+            `;
+
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }
+
+        function fecharModal() {
+            document.getElementById("ebookModal").classList.remove("active");
+            document.body.style.overflow = "";
+        }
+
+        // ============================================================
+        // PARTÍCULAS
+        // ============================================================
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null };
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 4 + 2;
+                this.baseSize = this.size;
+                this.speedX = (Math.random() - 0.5) * 0.6;
+                this.speedY = (Math.random() - 0.5) * 0.6;
+                const colors = ['15, 118, 110', '124, 58, 237', '245, 158, 11', '14, 165, 233', '236, 72, 153'];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.opacity = Math.random() * 0.3 + 0.15;
+                this.pulseSpeed = Math.random() * 0.02 + 0.01;
+                this.pulseOffset = Math.random() * Math.PI * 2;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+                this.size = this.baseSize + Math.sin(Date.now() * this.pulseSpeed + this.pulseOffset) * 0.8;
+                if (mouse.x !== null) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        const force = (150 - dist) / 150;
+                        this.size = this.baseSize + force * 3;
+                        this.opacity = Math.min(0.5, this.opacity + force * 0.2);
+                    } else {
+                        this.opacity = Math.max(0.1, this.opacity - 0.001);
+                    }
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        function initParticles(count = 60) {
+            particles = [];
+            for (let i = 0; i < count; i++) particles.push(new Particle());
+        }
+        initParticles();
+
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        const opacity = 0.06 * (1 - dist / 150);
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(15, 118, 110, ${opacity})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            connectParticles();
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // ============================================================
+        // REVEAL ON SCROLL
+        // ============================================================
+        const reveals = document.querySelectorAll('.reveal, .reveal-tilt');
+        function checkReveals() {
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) el.classList.add('active');
+            });
+        }
+        window.addEventListener('scroll', checkReveals);
+        window.addEventListener('load', checkReveals);
+
+        // ============================================================
+        // NAVBAR SCROLL
+        // ============================================================
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // ============================================================
+        // MENU MOBILE
+        // ============================================================
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        });
+
+        // ============================================================
+        // BUSCA
+        // ============================================================
+        const searchInput = document.getElementById('searchInput');
+        let buscaTimeout;
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(buscaTimeout);
+            buscaTimeout = setTimeout(() => {
+                termoBusca = e.target.value.trim();
+                renderizarCards();
+            }, 200);
+        });
+
+        // ============================================================
+        // MODAL — FECHAR
+        // ============================================================
+        document.getElementById('modalClose').addEventListener('click', fecharModal);
+        document.getElementById('ebookModal').addEventListener('click', (e) => {
+            if (e.target.id === 'ebookModal') fecharModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') fecharModal();
+        });
+
+        // ============================================================
+        // INICIALIZAR
+        // ============================================================
+        renderizarChips();
+        renderizarCards();
+
+        // ============================================================
+        // JSON-LD — SEO (schema Product)
+        // ============================================================
+        const jsonLd = {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Livraria Digital DataDesh",
+            "description": "E-books práticos sobre TikTok Shop, IA, gestão, vendas e empreendedorismo.",
+            "itemListElement": ebooks.map((eb, idx) => ({
+                "@type": "ListItem",
+                "position": idx + 1,
+                "item": {
+                    "@type": "Product",
+                    "name": eb.titulo,
+                    "description": eb.descCurta,
+                    "category": eb.categoria,
+                    "offers": {
+                        "@type": "Offer",
+                        "price": eb.preco.toFixed(2),
+                        "priceCurrency": "BRL",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            }))
+        };
+                const scriptLd = document.createElement('script');
+        scriptLd.type = 'application/ld+json';
+        scriptLd.textContent = JSON.stringify(jsonLd);
+        document.head.appendChild(scriptLd);
+    </script>
+
+</body>
+</html>
