@@ -1078,371 +1078,388 @@
         // CATÁLOGO — 14 E-BOOKS COM NOVAS CATEGORIAS
         // ============================================================
         const ebooks = [
-            // ══════════════════════════════════════════════════════
-            // ⭐ DESTAQUE (2 ebooks)
-            // ══════════════════════════════════════════════════════
-            {
-                id: 1,
-                titulo: "TikTokShop Monetizar",
-                categoria: "Destaque",
-                preco: 29.98,
-                precoOld: 49.90,
-                descCurta: "O guia mais completo para transformar o TikTokShop em uma fonte real de renda — do zero à monetização.",
-                descLonga: "Este é o material mais completo da linha TikTokShop. Ele reúne tudo o que você precisa para entender como funciona a monetização no TikTokShop, quais programas existem, como se qualificar, quais estratégias realmente funcionam e como construir uma audiência que gera renda consistente. Inclui planos de ação, cronogramas, exemplos práticos e erros a evitar. Ideal para quem quer tratar o TikTokShop como negócio sério.",
-                beneficios: [
-                    "Panorama completo dos programas de monetização",
-                    "Estratégias de crescimento orgânico",
-                    "Plano de ação de 30 dias",
-                    "Erros comuns e como evitá-los"
-                ],
-                icone: "fa-solid fa-sack-dollar",
-                capa: "tiktok",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20tiktok%20monetizar.png",
-                subtitulo: "Guia completo",
-                destaque: true,
-                link: "#"
-            },
-            {
-                id: 2,
-                titulo: "Android Ciber Segurança",
-                categoria: "Destaque",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "O guia prático de cibersegurança para celulares Android: proteger, prevenir e reagir.",
-                descLonga: "Um guia prático e acessível sobre cibersegurança para celulares Android. Você vai aprender a configurar bloqueios seguros, proteger contas, reconhecer golpes, preparar-se para perda ou roubo do aparelho e responder a incidentes. Escrito para iniciantes e intermediários, com foco no uso cotidiano no Brasil. Inclui checklists, planos de ação e explicações sobre as camadas de segurança do Android — sem promessas de invulnerabilidade.",
-                beneficios: [
-                    "Configurações essenciais de proteção",
-                    "Senhas, biometria e Conta Google segura",
-                    "Como reconhecer golpes e agir",
-                    "Preparação para roubo, perda e incidentes"
-                ],
-                icone: "fa-solid fa-mobile-screen-button",
-                capa: "gestao",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Android%20CiberSeguran%C3%A7a.png",
-                subtitulo: "Proteger · Prevenir · Reagir",
-                destaque: true,
-                link: "#"
-            },
+            const ebooks = [
+    // ══════════════════════════════════════════════════════
+    // ⭐ DESTAQUE + 🛡️ CIBERSEGURANÇA
+    // ══════════════════════════════════════════════════════
+    {
+        id: 1,
+        titulo: "TikTokShop Monetizar",
+        categoria: "Destaque",
+        categorias: ["Destaque", "TikTok Shop"],
+        preco: 29.98,
+        precoOld: 49.90,
+        descCurta: "O guia mais completo para transformar o TikTokShop em uma fonte real de renda — do zero à monetização.",
+        descLonga: "Este é o material mais completo da linha TikTokShop. Ele reúne tudo o que você precisa para entender como funciona a monetização no TikTokShop, quais programas existem, como se qualificar, quais estratégias realmente funcionam e como construir uma audiência que gera renda consistente. Inclui planos de ação, cronogramas, exemplos práticos e erros a evitar. Ideal para quem quer tratar o TikTokShop como negócio sério.",
+        beneficios: [
+            "Panorama completo dos programas de monetização",
+            "Estratégias de crescimento orgânico",
+            "Plano de ação de 30 dias",
+            "Erros comuns e como evitá-los"
+        ],
+        icone: "fa-solid fa-sack-dollar",
+        capa: "tiktok",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20tiktok%20monetizar.png",
+        subtitulo: "Guia completo",
+        destaque: true,
+        link: "#"
+    },
+    {
+        id: 2,
+        titulo: "Android Ciber Segurança",
+        categoria: "Destaque",
+        categorias: ["Destaque", "Cibersegurança"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "O guia prático de cibersegurança para celulares Android: proteger, prevenir e reagir.",
+        descLonga: "Um guia prático e acessível sobre cibersegurança para celulares Android. Você vai aprender a configurar bloqueios seguros, proteger contas, reconhecer golpes, preparar-se para perda ou roubo do aparelho e responder a incidentes. Escrito para iniciantes e intermediários, com foco no uso cotidiano no Brasil. Inclui checklists, planos de ação e explicações sobre as camadas de segurança do Android — sem promessas de invulnerabilidade.",
+        beneficios: [
+            "Configurações essenciais de proteção",
+            "Senhas, biometria e Conta Google segura",
+            "Como reconhecer golpes e agir",
+            "Preparação para roubo, perda e incidentes"
+        ],
+        icone: "fa-solid fa-mobile-screen-button",
+        capa: "gestao",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Android%20CiberSeguran%C3%A7a.png",
+        subtitulo: "Proteger · Prevenir · Reagir",
+        destaque: true,
+        link: "#"
+    },
 
-            // ══════════════════════════════════════════════════════
-            // 🧠 INTELIGÊNCIA ARTIFICIAL
-            // ══════════════════════════════════════════════════════
-            {
-                id: 3,
-                titulo: "Como Ganhar Dinheiro com Inteligência Artificial em 2026",
-                categoria: "Inteligência Artificial",
-                preco: 15.98,
-                precoOld: 39.90,
-                descCurta: "O guia estratégico para transformar ferramentas de IA em serviços, produtos e negócios lucrativos.",
-                descLonga: "Um guia completo sobre como transformar Inteligência Artificial em fonte de renda em 2026, cobrindo: a economia da IA, as melhores oportunidades de mercado, prestação de serviços com IA, automação para empresas, criação de conteúdo, produtos digitais, aplicação em e-commerce, ferramentas essenciais, captação de clientes, precificação, montagem de operação profissional, riscos e cuidados, plano de execução de 30 dias e prompts profissionais prontos para usar.",
-                beneficios: [
-                    "Panorama completo das oportunidades com IA em 2026",
-                    "Prompts profissionais prontos para usar",
-                    "Plano de execução de 30 dias",
-                    "Estudos de caso e checklists operacionais"
-                ],
-                icone: "fa-solid fa-brain",
-                capa: "premium",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Capa%20Como%20ganhar%20Dinheiro%20na%20internet%20em%202026.png",
-                subtitulo: "Guia estratégico 2026",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 4,
-                titulo: "Inteligência Artificial para Pequenos Negócios",
-                categoria: "Inteligência Artificial",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Use IA para economizar tempo, criar conteúdo e atender melhor seus clientes — sem precisar ser especialista.",
-                descLonga: "Um guia prático para pequenos negócios que querem usar a Inteligência Artificial no dia a dia sem complicação. Você vai aprender quais ferramentas realmente valem a pena, como aplicar IA em tarefas do negócio (atendimento, conteúdo, organização, precificação) e como evitar erros comuns. Linguagem acessível, exemplos reais e passo a passo para começar hoje.",
-                beneficios: [
-                    "Ferramentas de IA gratuitas e pagas comparadas",
-                    "Aplicações práticas para atendimento, conteúdo e gestão",
-                    "Passo a passo para começar sem experiência técnica",
-                    "Erros comuns a evitar e boas práticas de uso"
-                ],
-                icone: "fa-solid fa-robot",
-                capa: "ferramentas",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20ia%20para%20pequenos%20negocios.png",
-                subtitulo: "Guia prático",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 5,
-                titulo: "Inteligência Artificial para Professores",
-                categoria: "Inteligência Artificial",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "IA aplicada à prática docente: planejamento, ensino, avaliação e proteção de estudantes.",
-                descLonga: "Um guia prático para professores do Ensino Fundamental e Médio que querem usar a Inteligência Artificial em sala de aula de forma consciente e produtiva. Você vai aprender a usar IA para planejar aulas, criar materiais, avaliar alunos, personalizar o ensino e proteger os estudantes no ambiente digital. Inclui exemplos práticos, prompts prontos e reflexões sobre ética no uso da IA na educação.",
-                beneficios: [
-                    "Planejamento de aulas com apoio de IA",
-                    "Criação de materiais e atividades",
-                    "Avaliação e personalização do ensino",
-                    "Proteção de estudantes no ambiente digital"
-                ],
-                icone: "fa-solid fa-chalkboard-user",
-                capa: "ferramentas",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20ineteligencia%20artificial%20para%20professores.png",
-                subtitulo: "Prática docente",
-                destaque: false,
-                link: "#"
-            },
+    // ══════════════════════════════════════════════════════
+    // 🧠 INTELIGÊNCIA ARTIFICIAL
+    // ══════════════════════════════════════════════════════
+    {
+        id: 3,
+        titulo: "Como Ganhar Dinheiro com Inteligência Artificial em 2026",
+        categoria: "Inteligência Artificial",
+        categorias: ["Inteligência Artificial"],
+        preco: 15.98,
+        precoOld: 39.90,
+        descCurta: "O guia estratégico para transformar ferramentas de IA em serviços, produtos e negócios lucrativos.",
+        descLonga: "Um guia completo sobre como transformar Inteligência Artificial em fonte de renda em 2026, cobrindo: a economia da IA, as melhores oportunidades de mercado, prestação de serviços com IA, automação para empresas, criação de conteúdo, produtos digitais, aplicação em e-commerce, ferramentas essenciais, captação de clientes, precificação, montagem de operação profissional, riscos e cuidados, plano de execução de 30 dias e prompts profissionais prontos para usar.",
+        beneficios: [
+            "Panorama completo das oportunidades com IA em 2026",
+            "Prompts profissionais prontos para usar",
+            "Plano de execução de 30 dias",
+            "Estudos de caso e checklists operacionais"
+        ],
+        icone: "fa-solid fa-brain",
+        capa: "premium",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Capa%20Como%20ganhar%20Dinheiro%20na%20internet%20em%202026.png",
+        subtitulo: "Guia estratégico 2026",
+        destaque: false,
+        link: "#"
+    },
+    {
+        id: 4,
+        titulo: "Inteligência Artificial para Pequenos Negócios",
+        categoria: "Inteligência Artificial",
+        categorias: ["Inteligência Artificial"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "Use IA para economizar tempo, criar conteúdo e atender melhor seus clientes — sem precisar ser especialista.",
+        descLonga: "Um guia prático para pequenos negócios que querem usar a Inteligência Artificial no dia a dia sem complicação. Você vai aprender quais ferramentas realmente valem a pena, como aplicar IA em tarefas do negócio (atendimento, conteúdo, organização, precificação) e como evitar erros comuns. Linguagem acessível, exemplos reais e passo a passo para começar hoje.",
+        beneficios: [
+            "Ferramentas de IA gratuitas e pagas comparadas",
+            "Aplicações práticas para atendimento, conteúdo e gestão",
+            "Passo a passo para começar sem experiência técnica",
+            "Erros comuns a evitar e boas práticas de uso"
+        ],
+        icone: "fa-solid fa-robot",
+        capa: "ferramentas",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20ia%20para%20pequenos%20negocios.png",
+        subtitulo: "Guia prático",
+        destaque: false,
+        link: "#"
+    },
+    {
+        id: 5,
+        titulo: "Inteligência Artificial para Professores",
+        categoria: "Inteligência Artificial",
+        categorias: ["Inteligência Artificial"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "IA aplicada à prática docente: planejamento, ensino, avaliação e proteção de estudantes.",
+        descLonga: "Um guia prático para professores do Ensino Fundamental e Médio que querem usar a Inteligência Artificial em sala de aula de forma consciente e produtiva. Você vai aprender a usar IA para planejar aulas, criar materiais, avaliar alunos, personalizar o ensino e proteger os estudantes no ambiente digital. Inclui exemplos práticos, prompts prontos e reflexões sobre ética no uso da IA na educação.",
+        beneficios: [
+            "Planejamento de aulas com apoio de IA",
+            "Criação de materiais e atividades",
+            "Avaliação e personalização do ensino",
+            "Proteção de estudantes no ambiente digital"
+        ],
+        icone: "fa-solid fa-chalkboard-user",
+        capa: "ferramentas",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20ineteligencia%20artificial%20para%20professores.png",
+        subtitulo: "Prática docente",
+        destaque: false,
+        link: "#"
+    },
 
-            // ══════════════════════════════════════════════════════
-            // 📸 INSTAGRAM
-            // ══════════════════════════════════════════════════════
-            {
-                id: 6,
-                titulo: "Instagram que Vende",
-                categoria: "Instagram",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Transforme seu perfil em uma vitrine que atrai, engaja e converte seguidores em clientes.",
-                descLonga: "Um guia completo para quem quer usar o Instagram de forma estratégica e vender de verdade. Você vai aprender a estruturar o perfil, criar conteúdo que atrai o público certo, usar stories e reels com intenção comercial, construir autoridade e transformar seguidores em clientes. Sem fórmulas mágicas, sem promessas irreais — só o que funciona.",
-                beneficios: [
-                    "Estrutura de perfil que converte visitas em seguidores",
-                    "Ideias de conteúdo para stories, reels e feed",
-                    "Estratégias de engajamento e construção de autoridade",
-                    "Como transformar seguidores em clientes reais"
-                ],
-                icone: "fa-brands fa-instagram",
-                capa: "ferramentas",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/istagram%20que%20vende.png",
-                subtitulo: "Estratégia & Vendas",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 7,
-                titulo: "Instagram Reels que Viralizam",
-                categoria: "Instagram",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Aprenda a criar Reels que prendem atenção, viralizam e atraem seguidores qualificados.",
-                descLonga: "Um guia focado em Reels: como escolher o formato certo, criar ganchos que prendem nos primeiros 3 segundos, usar áudios e tendências com inteligência, editar de forma simples no celular e analisar métricas para melhorar o alcance. Inclui exemplos de roteiros prontos para adaptar ao seu nicho.",
-                beneficios: [
-                    "Ganchos que prendem nos primeiros segundos",
-                    "Uso estratégico de áudios e tendências",
-                    "Edição simples direto no celular",
-                    "Análise de métricas e otimização"
-                ],
-                icone: "fa-solid fa-film",
-                capa: "ferramentas",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/istagram%20que%20vende.png",
-                subtitulo: "Reels & Viralização",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 8,
-                titulo: "Instagram Stories que Convertem",
-                categoria: "Instagram",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Use Stories para criar conexão, gerar desejo e vender todos os dias — sem parecer insistente.",
-                descLonga: "Um guia prático sobre como usar os Stories de forma estratégica para vender. Você vai aprender a criar sequências que contam histórias, usar enquetes e caixinhas para gerar interação, mostrar produto de forma natural, criar urgência sem apelar e transformar seguidores em clientes. Inclui exemplos de sequências prontas.",
-                beneficios: [
-                    "Sequências de Stories que contam histórias",
-                    "Uso de enquetes e caixinhas para engajar",
-                    "Como mostrar produto de forma natural",
-                    "Criar urgência e fechar vendas nos Stories"
-                ],
-                icone: "fa-solid fa-circle-play",
-                capa: "ferramentas",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/istagram%20que%20vende.png",
-                subtitulo: "Stories & Conversão",
-                destaque: false,
-                link: "#"
-            },
+    // ══════════════════════════════════════════════════════
+    // 📸 INSTAGRAM
+    // ══════════════════════════════════════════════════════
+    {
+        id: 6,
+        titulo: "Instagram que Vende",
+        categoria: "Instagram",
+        categorias: ["Instagram"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "Transforme seu perfil em uma vitrine que atrai, engaja e converte seguidores em clientes.",
+        descLonga: "Um guia completo para quem quer usar o Instagram de forma estratégica e vender de verdade. Você vai aprender a estruturar o perfil, criar conteúdo que atrai o público certo, usar stories e reels com intenção comercial, construir autoridade e transformar seguidores em clientes. Sem fórmulas mágicas, sem promessas irreais — só o que funciona.",
+        beneficios: [
+            "Estrutura de perfil que converte visitas em seguidores",
+            "Ideias de conteúdo para stories, reels e feed",
+            "Estratégias de engajamento e construção de autoridade",
+            "Como transformar seguidores em clientes reais"
+        ],
+        icone: "fa-brands fa-instagram",
+        capa: "ferramentas",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/istagram%20que%20vende.png",
+        subtitulo: "Estratégia & Vendas",
+        destaque: false,
+        link: "#"
+    },
+    {
+        id: 7,
+        titulo: "Instagram Reels que Viralizam",
+        categoria: "Instagram",
+        categorias: ["Instagram"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "Aprenda a criar Reels que prendem atenção, viralizam e atraem seguidores qualificados.",
+        descLonga: "Um guia focado em Reels: como escolher o formato certo, criar ganchos que prendem nos primeiros 3 segundos, usar áudios e tendências com inteligência, editar de forma simples no celular e analisar métricas para melhorar o alcance. Inclui exemplos de roteiros prontos para adaptar ao seu nicho.",
+        beneficios: [
+            "Ganchos que prendem nos primeiros segundos",
+            "Uso estratégico de áudios e tendências",
+            "Edição simples direto no celular",
+            "Análise de métricas e otimização"
+        ],
+        icone: "fa-solid fa-film",
+        capa: "ferramentas",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/istagram%20que%20vende.png",
+        subtitulo: "Reels & Viralização",
+        destaque: false,
+        link: "#"
+    },
+    {
+        id: 8,
+        titulo: "Instagram Stories que Convertem",
+        categoria: "Instagram",
+        categorias: ["Instagram"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "Use Stories para criar conexão, gerar desejo e vender todos os dias — sem parecer insistente.",
+        descLonga: "Um guia prático sobre como usar os Stories de forma estratégica para vender. Você vai aprender a criar sequências que contam histórias, usar enquetes e caixinhas para gerar interação, mostrar produto de forma natural, criar urgência sem apelar e transformar seguidores em clientes. Inclui exemplos de sequências prontas.",
+        beneficios: [
+            "Sequências de Stories que contam histórias",
+            "Uso de enquetes e caixinhas para engajar",
+            "Como mostrar produto de forma natural",
+            "Criar urgência e fechar vendas nos Stories"
+        ],
+        icone: "fa-solid fa-circle-play",
+        capa: "ferramentas",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/istagram%20que%20vende.png",
+        subtitulo: "Stories & Conversão",
+        destaque: false,
+        link: "#"
+    },
 
-            // ══════════════════════════════════════════════════════
-            // ▶️ YOUTUBE
-            // ══════════════════════════════════════════════════════
-            {
-                id: 9,
-                titulo: "YouTube do Zero para Empreendedores",
-                categoria: "YouTube",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Crie seu canal, produza vídeos com propósito e use o YouTube para atrair clientes e construir autoridade.",
-                descLonga: "Um guia para empreendedores que querem começar no YouTube sem depender de equipamentos caros ou de anos de experiência. Você vai aprender a definir seu nicho, estruturar o canal, roteirizar vídeos, gravar com o celular, editar de forma simples, publicar com SEO básico e transformar visualizações em oportunidades de negócio.",
-                beneficios: [
-                    "Estrutura de canal e posicionamento de nicho",
-                    "Roteiro, gravação e edição com o celular",
-                    "SEO básico para YouTube",
-                    "Como transformar audiência em clientes"
-                ],
-                icone: "fa-brands fa-youtube",
-                capa: "ferramentas",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
-                subtitulo: "Conteúdo & Autoridade",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 10,
-                titulo: "YouTube: Roteiros que Retêm",
-                categoria: "YouTube",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Aprenda a estruturar roteiros que prendem a atenção do começo ao fim e aumentam o tempo de exibição.",
-                descLonga: "Um guia focado em roteiros para YouTube: como criar ganchos poderosos nos primeiros segundos, estruturar a narrativa para manter o espectador até o final, usar pattern interrupts, criar chamadas para ação naturais e medir retenção. Inclui modelos de roteiro por tipo de vídeo (tutorial, review, vlog, lista, storytelling).",
-                beneficios: [
-                    "Ganchos que prendem nos primeiros segundos",
-                    "Estrutura de narrativa para retenção",
-                    "Modelos de roteiro por tipo de vídeo",
-                    "Como medir e melhorar a retenção"
-                ],
-                icone: "fa-solid fa-clapperboard",
-                capa: "ferramentas",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
-                subtitulo: "Roteiros & Retenção",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 11,
-                titulo: "YouTube SEO e Crescimento",
-                categoria: "YouTube",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Aprenda a ser encontrado no YouTube: títulos, thumbnails, palavras-chave e estratégias de crescimento orgânico.",
-                descLonga: "Um guia prático sobre SEO e crescimento no YouTube. Você vai aprender a pesquisar palavras-chave, otimizar títulos e descrições, criar thumbnails que geram cliques, estruturar playlists, usar tags corretamente e entender o algoritmo para crescer de forma consistente e orgânica.",
-                beneficios: [
-                    "Pesquisa de palavras-chave para YouTube",
-                    "Otimização de título, descrição e tags",
-                    "Thumbnails que geram cliques",
-                    "Estratégias de crescimento orgânico"
-                ],
-                icone: "fa-solid fa-magnifying-glass-chart",
-                capa: "ferramentas",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
-                subtitulo: "SEO & Crescimento",
-                destaque: false,
-                link: "#"
-            },
+    // ══════════════════════════════════════════════════════
+    // ▶️ YOUTUBE
+    // ══════════════════════════════════════════════════════
+    {
+        id: 9,
+        titulo: "YouTube do Zero para Empreendedores",
+        categoria: "YouTube",
+        categorias: ["YouTube"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "Crie seu canal, produza vídeos com propósito e use o YouTube para atrair clientes e construir autoridade.",
+        descLonga: "Um guia para empreendedores que querem começar no YouTube sem depender de equipamentos caros ou de anos de experiência. Você vai aprender a definir seu nicho, estruturar o canal, roteirizar vídeos, gravar com o celular, editar de forma simples, publicar com SEO básico e transformar visualizações em oportunidades de negócio.",
+        beneficios: [
+            "Estrutura de canal e posicionamento de nicho",
+            "Roteiro, gravação e edição com o celular",
+            "SEO básico para YouTube",
+            "Como transformar audiência em clientes"
+        ],
+        icone: "fa-brands fa-youtube",
+        capa: "ferramentas",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
+        subtitulo: "Conteúdo & Autoridade",
+        destaque: false,
+        link: "#"
+    },
+    {
+        id: 10,
+        titulo: "YouTube: Roteiros que Retêm",
+        categoria: "YouTube",
+        categorias: ["YouTube"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "Aprenda a estruturar roteiros que prendem a atenção do começo ao fim e aumentam o tempo de exibição.",
+        descLonga: "Um guia focado em roteiros para YouTube: como criar ganchos poderosos nos primeiros segundos, estruturar a narrativa para manter o espectador até o final, usar pattern interrupts, criar chamadas para ação naturais e medir retenção. Inclui modelos de roteiro por tipo de vídeo (tutorial, review, vlog, lista, storytelling).",
+        beneficios: [
+            "Ganchos que prendem nos primeiros segundos",
+            "Estrutura de narrativa para retenção",
+            "Modelos de roteiro por tipo de vídeo",
+            "Como medir e melhorar a retenção"
+        ],
+        icone: "fa-solid fa-clapperboard",
+        capa: "ferramentas",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
+        subtitulo: "Roteiros & Retenção",
+        destaque: false,
+        link: "#"
+    },
+    {
+        id: 11,
+        titulo: "YouTube SEO e Crescimento",
+        categoria: "YouTube",
+        categorias: ["YouTube"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "Aprenda a ser encontrado no YouTube: títulos, thumbnails, palavras-chave e estratégias de crescimento orgânico.",
+        descLonga: "Um guia prático sobre SEO e crescimento no YouTube. Você vai aprender a pesquisar palavras-chave, otimizar títulos e descrições, criar thumbnails que geram cliques, estruturar playlists, usar tags corretamente e entender o algoritmo para crescer de forma consistente e orgânica.",
+        beneficios: [
+            "Pesquisa de palavras-chave para YouTube",
+            "Otimização de título, descrição e tags",
+            "Thumbnails que geram cliques",
+            "Estratégias de crescimento orgânico"
+        ],
+        icone: "fa-solid fa-magnifying-glass-chart",
+        capa: "ferramentas",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
+        subtitulo: "SEO & Crescimento",
+        destaque: false,
+        link: "#"
+    },
 
-            // ══════════════════════════════════════════════════════
-            // 🛒 TIKTOK SHOP
-            // ══════════════════════════════════════════════════════
-            {
-                id: 12,
-                titulo: "Como Abrir Sua Loja no TikTok Shop",
-                categoria: "TikTok Shop",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Do cadastro de vendedor ao primeiro produto publicado. Guia ilustrado passo a passo.",
-                descLonga: "Guia ilustrado que acompanha toda a jornada para abrir uma loja como vendedor no TikTok Shop Brasil: entender se você pode se cadastrar, separar documentos, criar a conta no Seller Center, configurar a operação, cadastrar produtos, preparar o envio dos pedidos e lidar com o pós-venda. Material independente e educacional, atualizado com referências oficiais.",
-                beneficios: [
-                    "Passo a passo do cadastro no Seller Center",
-                    "Checklist de documentos e requisitos",
-                    "Configuração de logística, banco e pagamentos",
-                    "Cadastro do primeiro produto com fotos e descrição"
-                ],
-                icone: "fa-solid fa-store",
-                capa: "tiktok",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Como%20abrir%20sua%20loja%20no%20tiktokshop.png",
-                subtitulo: "Guia ilustrado",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 13,
-                titulo: "TikTokShop do Criador ao Afiliado",
-                categoria: "TikTok Shop",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "O caminho completo para criadores que querem vender e afiliados que querem crescer no TikTokShop.",
-                descLonga: "Um guia que conecta dois universos do TikTokShop: o criador de conteúdo que quer monetizar e o afiliado que quer vender produtos de terceiros. Você vai aprender a se posicionar como criador, escolher produtos para afiliar, criar conteúdo que converte, usar os recursos da plataforma e construir uma renda consistente. Ideal para quem está começando do zero ou quer profissionalizar o que já faz.",
-                beneficios: [
-                    "Do criador de conteúdo ao afiliado profissional",
-                    "Escolha estratégica de produtos para afiliar",
-                    "Conteúdo que converte em vendas",
-                    "Recursos da plataforma e construção de renda"
-                ],
-                icone: "fa-brands fa-tiktok",
-                capa: "tiktok",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20tiktok%20do%20craidor%20ao%20afiliado.png",
-                subtitulo: "Criador & Afiliado",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 14,
-                titulo: "Como Crescer Sua Conta no TikTokShop",
-                categoria: "TikTok Shop",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Estratégias práticas para aumentar seguidores, engajamento e vendas na sua conta do TikTokShop.",
-                descLonga: "Um guia focado no crescimento orgânico e estratégico da sua conta no TikTokShop. Você vai aprender a definir nicho, criar conteúdo que viraliza, usar tendências com inteligência, analisar métricas, construir comunidade e transformar seguidores em clientes. Inclui planos de ação semanais e exemplos de conteúdo que funcionam.",
-                beneficios: [
-                    "Definição de nicho e posicionamento",
-                    "Conteúdo que viraliza e engaja",
-                    "Análise de métricas e ajustes estratégicos",
-                    "Plano de ação semanal de crescimento"
-                ],
-                icone: "fa-solid fa-arrow-trend-up",
-                capa: "tiktok",
-                // ⚠️ Mesmo link do "Abrir Loja" enviado por você. Substitua quando tiver a capa correta.
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Como%20abrir%20sua%20loja%20no%20tiktokshop.png",
-                subtitulo: "Crescimento & Engajamento",
-                destaque: false,
-                link: "#"
-            },
+    // ══════════════════════════════════════════════════════
+    // 🛒 TIKTOK SHOP
+    // ══════════════════════════════════════════════════════
+    {
+        id: 12,
+        titulo: "Como Abrir Sua Loja no TikTok Shop",
+        categoria: "TikTok Shop",
+        categorias: ["TikTok Shop"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "Do cadastro de vendedor ao primeiro produto publicado. Guia ilustrado passo a passo.",
+        descLonga: "Guia ilustrado que acompanha toda a jornada para abrir uma loja como vendedor no TikTok Shop Brasil: entender se você pode se cadastrar, separar documentos, criar a conta no Seller Center, configurar a operação, cadastrar produtos, preparar o envio dos pedidos e lidar com o pós-venda. Material independente e educacional, atualizado com referências oficiais.",
+        beneficios: [
+            "Passo a passo do cadastro no Seller Center",
+            "Checklist de documentos e requisitos",
+            "Configuração de logística, banco e pagamentos",
+            "Cadastro do primeiro produto com fotos e descrição"
+        ],
+        icone: "fa-solid fa-store",
+        capa: "tiktok",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Como%20abrir%20sua%20loja%20no%20tiktokshop.png",
+        subtitulo: "Guia ilustrado",
+        destaque: false,
+        link: "#"
+    },
+    {
+        id: 13,
+        titulo: "TikTokShop do Criador ao Afiliado",
+        categoria: "TikTok Shop",
+        categorias: ["TikTok Shop"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "O caminho completo para criadores que querem vender e afiliados que querem crescer no TikTokShop.",
+        descLonga: "Um guia que conecta dois universos do TikTokShop: o criador de conteúdo que quer monetizar e o afiliado que quer vender produtos de terceiros. Você vai aprender a se posicionar como criador, escolher produtos para afiliar, criar conteúdo que converte, usar os recursos da plataforma e construir uma renda consistente. Ideal para quem está começando do zero ou quer profissionalizar o que já faz.",
+        beneficios: [
+            "Do criador de conteúdo ao afiliado profissional",
+            "Escolha estratégica de produtos para afiliar",
+            "Conteúdo que converte em vendas",
+            "Recursos da plataforma e construção de renda"
+        ],
+        icone: "fa-brands fa-tiktok",
+        capa: "tiktok",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20tiktok%20do%20craidor%20ao%20afiliado.png",
+        subtitulo: "Criador & Afiliado",
+        destaque: false,
+        link: "#"
+    },
+    {
+        id: 14,
+        titulo: "Como Crescer Sua Conta no TikTokShop",
+        categoria: "TikTok Shop",
+        categorias: ["TikTok Shop"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "Estratégias práticas para aumentar seguidores, engajamento e vendas na sua conta do TikTokShop.",
+        descLonga: "Um guia focado no crescimento orgânico e estratégico da sua conta no TikTokShop. Você vai aprender a definir nicho, criar conteúdo que viraliza, usar tendências com inteligência, analisar métricas, construir comunidade e transformar seguidores em clientes. Inclui planos de ação semanais e exemplos de conteúdo que funcionam.",
+        beneficios: [
+            "Definição de nicho e posicionamento",
+            "Conteúdo que viraliza e engaja",
+            "Análise de métricas e ajustes estratégicos",
+            "Plano de ação semanal de crescimento"
+        ],
+        icone: "fa-solid fa-arrow-trend-up",
+        capa: "tiktok",
+        // ⚠️ Mesmo link do "Abrir Loja" enviado por você. Substitua quando tiver a capa correta.
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Como%20abrir%20sua%20loja%20no%20tiktokshop.png",
+        subtitulo: "Crescimento & Engajamento",
+        destaque: false,
+        link: "#"
+    },
 
-            // ══════════════════════════════════════════════════════
-            // 🛡️ CIBERSEGURANÇA
-            // ══════════════════════════════════════════════════════
-            {
-                id: 15,
-                titulo: "Cibersegurança para Famílias",
-                categoria: "Cibersegurança",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Proteja crianças, adolescentes e idosos no ambiente digital com orientações práticas e acessíveis.",
-                descLonga: "Um guia dedicado à proteção digital de famílias. Você vai aprender a configurar controles parentais, orientar crianças e adolescentes sobre riscos online, proteger idosos contra golpes comuns, criar combinados familiares sobre uso de tecnologia e agir em situações de incidente. Linguagem acessível e exemplos do cotidiano brasileiro.",
-                beneficios: [
-                    "Configuração de controles parentais",
-                    "Orientação para crianças e adolescentes",
-                    "Proteção de idosos contra golpes",
-                    "Combinados familiares sobre tecnologia"
-                ],
-                icone: "fa-solid fa-users",
-                capa: "gestao",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Android%20CiberSeguran%C3%A7a.png",
-                subtitulo: "Proteção familiar",
-                destaque: false,
-                link: "#"
-            },
+    // ══════════════════════════════════════════════════════
+    // 🛡️ CIBERSEGURANÇA
+    // ══════════════════════════════════════════════════════
+    {
+        id: 15,
+        titulo: "Cibersegurança para Famílias",
+        categoria: "Cibersegurança",
+        categorias: ["Cibersegurança"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "Proteja crianças, adolescentes e idosos no ambiente digital com orientações práticas e acessíveis.",
+        descLonga: "Um guia dedicado à proteção digital de famílias. Você vai aprender a configurar controles parentais, orientar crianças e adolescentes sobre riscos online, proteger idosos contra golpes comuns, criar combinados familiares sobre uso de tecnologia e agir em situações de incidente. Linguagem acessível e exemplos do cotidiano brasileiro.",
+        beneficios: [
+            "Configuração de controles parentais",
+            "Orientação para crianças e adolescentes",
+            "Proteção de idosos contra golpes",
+            "Combinados familiares sobre tecnologia"
+        ],
+        icone: "fa-solid fa-users",
+        capa: "gestao",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Android%20CiberSeguran%C3%A7a.png",
+        subtitulo: "Proteção familiar",
+        destaque: false,
+        link: "#"
+    },
 
-            // ══════════════════════════════════════════════════════
-            // 🚀 MARKETING DIGITAL
-            // ══════════════════════════════════════════════════════
-            {
-                id: 16,
-                titulo: "Marketing Digital para Afiliados",
-                categoria: "Marketing Digital",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Aprenda a ganhar comissões promovendo produtos de terceiros — do zero e com estratégia.",
-                descLonga: "Um guia introdutório sobre marketing de afiliados para quem quer começar a ganhar dinheiro promovendo produtos de terceiros. Você vai aprender como funciona o modelo, como escolher plataformas e produtos, como divulgar de forma ética, como criar conteúdo de recomendação e como acompanhar resultados. Inclui dicas de transparência e boas práticas.",
-                beneficios: [
-                    "Como funciona o marketing de afiliados",
-                    "Escolha de plataformas e produtos",
-                    "Estratégias de divulgação ética",
-                    "Acompanhamento de resultados e métricas"
-                ],
-                icone: "fa-solid fa-link",
-                capa: "empreendedor",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
-                subtitulo: "Renda extra",
-                destaque: false,
-                link: "#"
-            }
-        ];
+    // ══════════════════════════════════════════════════════
+    // 🚀 MARKETING DIGITAL
+    // ══════════════════════════════════════════════════════
+    {
+        id: 16,
+        titulo: "Marketing Digital para Afiliados",
+        categoria: "Marketing Digital",
+        categorias: ["Marketing Digital"],
+        preco: 15.98,
+        precoOld: 29.90,
+        descCurta: "Aprenda a ganhar comissões promovendo produtos de terceiros — do zero e com estratégia.",
+        descLonga: "Um guia introdutório sobre marketing de afiliados para quem quer começar a ganhar dinheiro promovendo produtos de terceiros. Você vai aprender como funciona o modelo, como escolher plataformas e produtos, como divulgar de forma ética, como criar conteúdo de recomendação e como acompanhar resultados. Inclui dicas de transparência e boas práticas.",
+        beneficios: [
+            "Como funciona o marketing de afiliados",
+            "Escolha de plataformas e produtos",
+            "Estratégias de divulgação ética",
+            "Acompanhamento de resultados e métricas"
+        ],
+        icone: "fa-solid fa-link",
+        capa: "empreendedor",
+        imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
+        subtitulo: "Renda extra",
+        destaque: false,
+        link: "#"
+    }
+];
 
         // ============================================================
         // CONFIGURAÇÃO
@@ -1499,12 +1516,13 @@
         // ============================================================
         // RENDERIZAR CARDS
         // ============================================================
-        function renderizarCards() {
+                function renderizarCards() {
             const grid = document.getElementById("ebooksGrid");
             const countEl = document.getElementById("resultsCount");
 
             let filtrados = ebooks.filter(eb => {
-                const matchCategoria = categoriaAtiva === "Todas" || eb.categoria === categoriaAtiva;
+                // Usa array de categorias para permitir múltiplos tópicos por ebook
+                const matchCategoria = categoriaAtiva === "Todas" || eb.categorias.includes(categoriaAtiva);
                 const matchBusca = termoBusca === "" ||
                     eb.titulo.toLowerCase().includes(termoBusca.toLowerCase()) ||
                     eb.descCurta.toLowerCase().includes(termoBusca.toLowerCase());
@@ -1558,7 +1576,7 @@
                 grid.appendChild(card);
             });
         }
-
+        
         // ============================================================
         // MODAL
         // ============================================================
