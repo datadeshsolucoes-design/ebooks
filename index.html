@@ -1217,7 +1217,7 @@
                 </div>
                 <div class="footer-links">
                     <h4>Links rápidos</h4>
-                    <a href="https://datadeshsolucoes-design.github.io/Servicos-digitais/">Início</a>
+                    <a href="https://datadeshsolucoes-design.github.io/Servicos-digitais/">Site DataDesh</a>
                     <a href="#catalogo">E-books</a>
                     <a href="https://datadeshsolucoes-design.github.io/catalago-sem-precos-DataDesh/" target="_blank" rel="noopener">Catálogo Completo</a>
                     <a href="https://wa.me/5531984987116" target="_blank" rel="noopener">Suporte</a>
@@ -1808,7 +1808,7 @@
         }
 
         // ============================================================
-        // RENDERIZAR CARD INDIVIDUAL (AGORA USA IMAGEM DO COMBO)
+        // RENDERIZAR CARD INDIVIDUAL
         // ============================================================
         function renderizarCardHTML(eb) {
             let cardClasses = "ebook-card";
@@ -1824,7 +1824,6 @@
                 ? `<span class="combo-economy">💰 Economize R$ ${economia}</span>`
                 : "";
 
-            // TODOS usam imagem real (inclusive os combos, agora)
             const capaHTML = `<div class="${eb.isCombo ? 'ebook-cover-combo-img' : 'ebook-cover-img'}">
                 <img src="${eb.imagem}" alt="Capa do ${eb.titulo}" loading="lazy" 
                      onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\\'aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;padding:24px 20px;color:white;position:relative;overflow:hidden;background:linear-gradient(135deg,#0f766e,#7c3aed);\\'><div style=\\'font-size:1.15rem;font-weight:900;line-height:1.15;\\'>${eb.titulo}</div><div style=\\'font-size:0.7rem;opacity:0.85;text-transform:uppercase;\\'>${eb.isCombo ? eb.comboItens.length + ' e-books em 1' : (eb.subtitulo || '')}</div></div>';">
