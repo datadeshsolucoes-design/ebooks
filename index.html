@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livraria Digital | DataDesh Soluções</title>
-    <meta name="description" content="E-books práticos sobre TikTok Shop, IA, cibersegurança, marketing digital e empreendedorismo. Conhecimento que transforma ideias em possibilidades." />
+    <meta name="description" content="E-books práticos sobre IA, Instagram, YouTube, TikTok Shop, cibersegurança e marketing digital. Conhecimento que transforma ideias em possibilidades." />
     <meta property="og:title" content="Livraria Digital | DataDesh Soluções" />
-    <meta property="og:description" content="E-books práticos sobre TikTok Shop, IA, cibersegurança, marketing digital e empreendedorismo." />
+    <meta property="og:description" content="E-books práticos sobre IA, Instagram, YouTube, TikTok Shop, cibersegurança e marketing digital." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://raw.githubusercontent.com/datadeshsolucoes-design/Servicos-digitais/main/logo.jpeg" />
     
@@ -55,18 +55,9 @@
             from { opacity: 0; transform: translateY(40px) scale(0.96); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
-        @keyframes float3d {
-            0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
-            25% { transform: translateY(-10px) rotateX(2deg) rotateY(2deg); }
-            75% { transform: translateY(10px) rotateX(-2deg) rotateY(-2deg); }
-        }
         @keyframes glowPulse {
             0%, 100% { box-shadow: 0 0 40px rgba(15, 118, 110, 0.04); }
             50% { box-shadow: 0 0 80px rgba(15, 118, 110, 0.10); }
-        }
-        @keyframes tiltIn {
-            0% { opacity: 0; transform: perspective(800px) rotateX(-15deg) rotateY(15deg) translateY(40px); }
-            100% { opacity: 1; transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0); }
         }
 
         .reveal {
@@ -75,13 +66,6 @@
             transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
-
-        .reveal-tilt {
-            opacity: 0;
-            transform: perspective(800px) rotateX(-10deg) rotateY(10deg) translateY(30px);
-            transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .reveal-tilt.active { opacity: 1; transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0); }
 
         #particles-canvas {
             position: fixed;
@@ -457,15 +441,13 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            transform-style: preserve-3d;
-            perspective: 600px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
             display: flex;
             flex-direction: column;
             position: relative;
         }
         .ebook-card:hover {
-            transform: translateY(-8px) rotateX(1.5deg) rotateY(1.5deg);
+            transform: translateY(-8px);
             border-color: var(--primary);
             box-shadow: var(--shadow-glow);
         }
@@ -489,7 +471,6 @@
             box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
         }
 
-        /* CAPA COM IMAGEM PNG */
         .ebook-cover-img {
             aspect-ratio: 3/4;
             position: relative;
@@ -506,31 +487,6 @@
         .ebook-card:hover .ebook-cover-img img {
             transform: scale(1.05);
         }
-        .ebook-cover-img::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0) 70%, rgba(0,0,0,0.15) 100%);
-            pointer-events: none;
-        }
-
-        /* Fallback CSS (caso a imagem não carregue) */
-        .ebook-cover-fallback {
-            aspect-ratio: 3/4;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 24px 20px;
-            position: relative;
-            overflow: hidden;
-            color: white;
-            text-align: left;
-        }
-        .cover-style-ferramentas { background: linear-gradient(135deg, #0f766e 0%, #7c3aed 100%); }
-        .cover-style-tiktok { background: linear-gradient(135deg, #7c3aed 0%, #f59e0b 100%); }
-        .cover-style-gestao { background: linear-gradient(135deg, #f59e0b 0%, #0f766e 100%); }
-        .cover-style-empreendedor { background: linear-gradient(135deg, #1a2332 0%, #0f766e 100%); }
-        .cover-style-premium { background: linear-gradient(135deg, #0a0a0a 0%, #1a2332 50%, #7c3aed 100%); }
 
         .ebook-info {
             padding: 20px;
@@ -1025,7 +981,7 @@
                 <i class="fa-solid fa-book-open"></i> Livraria Digital DataDesh
             </div>
             <h1 class="reveal">Conhecimento que transforma <span class="highlight">ideias em possibilidades</span></h1>
-            <p class="reveal">Explore nossa biblioteca digital e encontre materiais práticos para aprender, evoluir e descobrir novas oportunidades. E-books sobre TikTok Shop, IA, cibersegurança, marketing digital e empreendedorismo.</p>
+            <p class="reveal">Explore nossa biblioteca digital e encontre materiais práticos para aprender, evoluir e descobrir novas oportunidades. E-books sobre IA, Instagram, YouTube, TikTok Shop, cibersegurança e marketing digital.</p>
             <div class="hero-actions reveal">
                 <a href="#catalogo" class="btn btn-primary btn-glow"><i class="fa-solid fa-book"></i> Explorar E-books</a>
                 <a href="https://wa.me/5531984987116" class="btn btn-secondary" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Tirar dúvidas</a>
@@ -1083,7 +1039,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <h4>DataDesh Soluções</h4>
-                    <p>Soluções digitais personalizadas para pequenos negócios. Livraria digital com e-books práticos sobre TikTok Shop, IA, gestão, vendas e empreendedorismo.</p>
+                    <p>Soluções digitais personalizadas para pequenos negócios. Livraria digital com e-books práticos sobre IA, Instagram, YouTube, TikTok Shop, cibersegurança e marketing digital.</p>
                     <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 8px;">
                         <strong>CNPJ:</strong> 66.884.261/0001-20
                     </p>
@@ -1119,20 +1075,66 @@
 
     <script>
         // ============================================================
-        // CATÁLOGO DE E-BOOKS (11 PRODUTOS — PREÇOS ATUALIZADOS)
+        // CATÁLOGO — 14 E-BOOKS COM NOVAS CATEGORIAS
         // ============================================================
         const ebooks = [
             // ══════════════════════════════════════════════════════
-            // DESTAQUE
+            // ⭐ DESTAQUE (2 ebooks)
             // ══════════════════════════════════════════════════════
             {
                 id: 1,
-                titulo: "Como Ganhar Dinheiro com Inteligência Artificial em 2026",
+                titulo: "TikTokShop Monetizar",
                 categoria: "Destaque",
+                preco: 29.98,
+                precoOld: 49.90,
+                descCurta: "O guia mais completo para transformar o TikTokShop em uma fonte real de renda — do zero à monetização.",
+                descLonga: "Este é o material mais completo da linha TikTokShop. Ele reúne tudo o que você precisa para entender como funciona a monetização no TikTokShop, quais programas existem, como se qualificar, quais estratégias realmente funcionam e como construir uma audiência que gera renda consistente. Inclui planos de ação, cronogramas, exemplos práticos e erros a evitar. Ideal para quem quer tratar o TikTokShop como negócio sério.",
+                beneficios: [
+                    "Panorama completo dos programas de monetização",
+                    "Estratégias de crescimento orgânico",
+                    "Plano de ação de 30 dias",
+                    "Erros comuns e como evitá-los"
+                ],
+                icone: "fa-solid fa-sack-dollar",
+                capa: "tiktok",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20tiktok%20monetizar.png",
+                subtitulo: "Guia completo",
+                destaque: true,
+                link: "#"
+            },
+            {
+                id: 2,
+                titulo: "Android Ciber Segurança",
+                categoria: "Destaque",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "O guia prático de cibersegurança para celulares Android: proteger, prevenir e reagir.",
+                descLonga: "Um guia prático e acessível sobre cibersegurança para celulares Android. Você vai aprender a configurar bloqueios seguros, proteger contas, reconhecer golpes, preparar-se para perda ou roubo do aparelho e responder a incidentes. Escrito para iniciantes e intermediários, com foco no uso cotidiano no Brasil. Inclui checklists, planos de ação e explicações sobre as camadas de segurança do Android — sem promessas de invulnerabilidade.",
+                beneficios: [
+                    "Configurações essenciais de proteção",
+                    "Senhas, biometria e Conta Google segura",
+                    "Como reconhecer golpes e agir",
+                    "Preparação para roubo, perda e incidentes"
+                ],
+                icone: "fa-solid fa-mobile-screen-button",
+                capa: "gestao",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Android%20CiberSeguran%C3%A7a.png",
+                subtitulo: "Proteger · Prevenir · Reagir",
+                destaque: true,
+                link: "#"
+            },
+
+            // ══════════════════════════════════════════════════════
+            // 🧠 INTELIGÊNCIA ARTIFICIAL
+            // ══════════════════════════════════════════════════════
+            {
+                id: 3,
+                titulo: "Como Ganhar Dinheiro com Inteligência Artificial em 2026",
+                categoria: "Inteligência Artificial",
                 preco: 15.98,
                 precoOld: 39.90,
                 descCurta: "O guia estratégico para transformar ferramentas de IA em serviços, produtos e negócios lucrativos.",
-                descLonga: "Um guia completo sobre como transformar Inteligência Artificial em fonte de renda em 2026, cobrindo: a economia da IA, as melhores oportunidades de mercado, prestação de serviços com IA, automação para empresas, criação de conteúdo, produtos digitais, aplicação em e-commerce, ferramentas essenciais, captação de clientes, precificação, montagem de operação profissional, riscos e cuidados, plano de execução de 30 dias e prompts profissionais prontos para usar. Escrito com base em fontes oficiais e dados atualizados.",
+                descLonga: "Um guia completo sobre como transformar Inteligência Artificial em fonte de renda em 2026, cobrindo: a economia da IA, as melhores oportunidades de mercado, prestação de serviços com IA, automação para empresas, criação de conteúdo, produtos digitais, aplicação em e-commerce, ferramentas essenciais, captação de clientes, precificação, montagem de operação profissional, riscos e cuidados, plano de execução de 30 dias e prompts profissionais prontos para usar.",
                 beneficios: [
                     "Panorama completo das oportunidades com IA em 2026",
                     "Prompts profissionais prontos para usar",
@@ -1143,17 +1145,13 @@
                 capa: "premium",
                 imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Capa%20Como%20ganhar%20Dinheiro%20na%20internet%20em%202026.png",
                 subtitulo: "Guia estratégico 2026",
-                destaque: true,
+                destaque: false,
                 link: "#"
             },
-
-            // ══════════════════════════════════════════════════════
-            // FERRAMENTAS
-            // ══════════════════════════════════════════════════════
             {
-                id: 2,
+                id: 4,
                 titulo: "Inteligência Artificial para Pequenos Negócios",
-                categoria: "Ferramentas",
+                categoria: "Inteligência Artificial",
                 preco: 15.98,
                 precoOld: 29.90,
                 descCurta: "Use IA para economizar tempo, criar conteúdo e atender melhor seus clientes — sem precisar ser especialista.",
@@ -1172,9 +1170,9 @@
                 link: "#"
             },
             {
-                id: 3,
+                id: 5,
                 titulo: "Inteligência Artificial para Professores",
-                categoria: "Ferramentas",
+                categoria: "Inteligência Artificial",
                 preco: 15.98,
                 precoOld: 29.90,
                 descCurta: "IA aplicada à prática docente: planejamento, ensino, avaliação e proteção de estudantes.",
@@ -1192,31 +1190,14 @@
                 destaque: false,
                 link: "#"
             },
+
+            // ══════════════════════════════════════════════════════
+            // 📸 INSTAGRAM
+            // ══════════════════════════════════════════════════════
             {
-                id: 4,
-                titulo: "Marketing Digital para Afiliados",
-                categoria: "Ferramentas",
-                preco: 15.98,
-                precoOld: 29.90,
-                descCurta: "Aprenda a ganhar comissões promovendo produtos de terceiros — do zero e com estratégia.",
-                descLonga: "Um guia introdutório sobre marketing de afiliados para quem quer começar a ganhar dinheiro promovendo produtos de terceiros. Você vai aprender como funciona o modelo, como escolher plataformas e produtos, como divulgar de forma ética, como criar conteúdo de recomendação e como acompanhar resultados. Inclui dicas de transparência e boas práticas.",
-                beneficios: [
-                    "Como funciona o marketing de afiliados",
-                    "Escolha de plataformas e produtos",
-                    "Estratégias de divulgação ética",
-                    "Acompanhamento de resultados e métricas"
-                ],
-                icone: "fa-solid fa-link",
-                capa: "ferramentas",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
-                subtitulo: "Renda extra",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 5,
+                id: 6,
                 titulo: "Instagram que Vende",
-                categoria: "Ferramentas",
+                categoria: "Instagram",
                 preco: 15.98,
                 precoOld: 29.90,
                 descCurta: "Transforme seu perfil em uma vitrine que atrai, engaja e converte seguidores em clientes.",
@@ -1234,12 +1215,121 @@
                 destaque: false,
                 link: "#"
             },
+            {
+                id: 7,
+                titulo: "Instagram Reels que Viralizam",
+                categoria: "Instagram",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Aprenda a criar Reels que prendem atenção, viralizam e atraem seguidores qualificados.",
+                descLonga: "Um guia focado em Reels: como escolher o formato certo, criar ganchos que prendem nos primeiros 3 segundos, usar áudios e tendências com inteligência, editar de forma simples no celular e analisar métricas para melhorar o alcance. Inclui exemplos de roteiros prontos para adaptar ao seu nicho.",
+                beneficios: [
+                    "Ganchos que prendem nos primeiros segundos",
+                    "Uso estratégico de áudios e tendências",
+                    "Edição simples direto no celular",
+                    "Análise de métricas e otimização"
+                ],
+                icone: "fa-solid fa-film",
+                capa: "ferramentas",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/istagram%20que%20vende.png",
+                subtitulo: "Reels & Viralização",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 8,
+                titulo: "Instagram Stories que Convertem",
+                categoria: "Instagram",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Use Stories para criar conexão, gerar desejo e vender todos os dias — sem parecer insistente.",
+                descLonga: "Um guia prático sobre como usar os Stories de forma estratégica para vender. Você vai aprender a criar sequências que contam histórias, usar enquetes e caixinhas para gerar interação, mostrar produto de forma natural, criar urgência sem apelar e transformar seguidores em clientes. Inclui exemplos de sequências prontas.",
+                beneficios: [
+                    "Sequências de Stories que contam histórias",
+                    "Uso de enquetes e caixinhas para engajar",
+                    "Como mostrar produto de forma natural",
+                    "Criar urgência e fechar vendas nos Stories"
+                ],
+                icone: "fa-solid fa-circle-play",
+                capa: "ferramentas",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/istagram%20que%20vende.png",
+                subtitulo: "Stories & Conversão",
+                destaque: false,
+                link: "#"
+            },
 
             // ══════════════════════════════════════════════════════
-            // TIKTOK SHOP
+            // ▶️ YOUTUBE
             // ══════════════════════════════════════════════════════
             {
-                id: 6,
+                id: 9,
+                titulo: "YouTube do Zero para Empreendedores",
+                categoria: "YouTube",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Crie seu canal, produza vídeos com propósito e use o YouTube para atrair clientes e construir autoridade.",
+                descLonga: "Um guia para empreendedores que querem começar no YouTube sem depender de equipamentos caros ou de anos de experiência. Você vai aprender a definir seu nicho, estruturar o canal, roteirizar vídeos, gravar com o celular, editar de forma simples, publicar com SEO básico e transformar visualizações em oportunidades de negócio.",
+                beneficios: [
+                    "Estrutura de canal e posicionamento de nicho",
+                    "Roteiro, gravação e edição com o celular",
+                    "SEO básico para YouTube",
+                    "Como transformar audiência em clientes"
+                ],
+                icone: "fa-brands fa-youtube",
+                capa: "ferramentas",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
+                subtitulo: "Conteúdo & Autoridade",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 10,
+                titulo: "YouTube: Roteiros que Retêm",
+                categoria: "YouTube",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Aprenda a estruturar roteiros que prendem a atenção do começo ao fim e aumentam o tempo de exibição.",
+                descLonga: "Um guia focado em roteiros para YouTube: como criar ganchos poderosos nos primeiros segundos, estruturar a narrativa para manter o espectador até o final, usar pattern interrupts, criar chamadas para ação naturais e medir retenção. Inclui modelos de roteiro por tipo de vídeo (tutorial, review, vlog, lista, storytelling).",
+                beneficios: [
+                    "Ganchos que prendem nos primeiros segundos",
+                    "Estrutura de narrativa para retenção",
+                    "Modelos de roteiro por tipo de vídeo",
+                    "Como medir e melhorar a retenção"
+                ],
+                icone: "fa-solid fa-clapperboard",
+                capa: "ferramentas",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
+                subtitulo: "Roteiros & Retenção",
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 11,
+                titulo: "YouTube SEO e Crescimento",
+                categoria: "YouTube",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Aprenda a ser encontrado no YouTube: títulos, thumbnails, palavras-chave e estratégias de crescimento orgânico.",
+                descLonga: "Um guia prático sobre SEO e crescimento no YouTube. Você vai aprender a pesquisar palavras-chave, otimizar títulos e descrições, criar thumbnails que geram cliques, estruturar playlists, usar tags corretamente e entender o algoritmo para crescer de forma consistente e orgânica.",
+                beneficios: [
+                    "Pesquisa de palavras-chave para YouTube",
+                    "Otimização de título, descrição e tags",
+                    "Thumbnails que geram cliques",
+                    "Estratégias de crescimento orgânico"
+                ],
+                icone: "fa-solid fa-magnifying-glass-chart",
+                capa: "ferramentas",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
+                subtitulo: "SEO & Crescimento",
+                destaque: false,
+                link: "#"
+            },
+
+            // ══════════════════════════════════════════════════════
+            // 🛒 TIKTOK SHOP
+            // ══════════════════════════════════════════════════════
+            {
+                id: 12,
                 titulo: "Como Abrir Sua Loja no TikTok Shop",
                 categoria: "TikTok Shop",
                 preco: 15.98,
@@ -1260,7 +1350,7 @@
                 link: "#"
             },
             {
-                id: 7,
+                id: 13,
                 titulo: "TikTokShop do Criador ao Afiliado",
                 categoria: "TikTok Shop",
                 preco: 15.98,
@@ -1281,7 +1371,7 @@
                 link: "#"
             },
             {
-                id: 8,
+                id: 14,
                 titulo: "Como Crescer Sua Conta no TikTokShop",
                 categoria: "TikTok Shop",
                 preco: 15.98,
@@ -1302,49 +1392,53 @@
                 destaque: false,
                 link: "#"
             },
+
+            // ══════════════════════════════════════════════════════
+            // 🛡️ CIBERSEGURANÇA
+            // ══════════════════════════════════════════════════════
             {
-                id: 9,
-                titulo: "TikTokShop Monetizar",
-                categoria: "TikTok Shop",
-                preco: 29.98,
-                precoOld: 49.90,
-                descCurta: "O guia mais completo para transformar o TikTokShop em uma fonte real de renda — do zero à monetização.",
-                descLonga: "Este é o material mais completo da linha TikTokShop. Ele reúne tudo o que você precisa para entender como funciona a monetização no TikTokShop, quais programas existem, como se qualificar, quais estratégias realmente funcionam e como construir uma audiência que gera renda consistente. Inclui planos de ação, cronogramas, exemplos práticos e erros a evitar. Ideal para quem quer tratar o TikTokShop como negócio sério.",
+                id: 15,
+                titulo: "Cibersegurança para Famílias",
+                categoria: "Cibersegurança",
+                preco: 15.98,
+                precoOld: 29.90,
+                descCurta: "Proteja crianças, adolescentes e idosos no ambiente digital com orientações práticas e acessíveis.",
+                descLonga: "Um guia dedicado à proteção digital de famílias. Você vai aprender a configurar controles parentais, orientar crianças e adolescentes sobre riscos online, proteger idosos contra golpes comuns, criar combinados familiares sobre uso de tecnologia e agir em situações de incidente. Linguagem acessível e exemplos do cotidiano brasileiro.",
                 beneficios: [
-                    "Panorama completo dos programas de monetização",
-                    "Estratégias de crescimento orgânico",
-                    "Plano de ação de 30 dias",
-                    "Erros comuns e como evitá-los"
+                    "Configuração de controles parentais",
+                    "Orientação para crianças e adolescentes",
+                    "Proteção de idosos contra golpes",
+                    "Combinados familiares sobre tecnologia"
                 ],
-                icone: "fa-solid fa-sack-dollar",
-                capa: "tiktok",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20tiktok%20monetizar.png",
-                subtitulo: "Guia completo",
-                destaque: true,
+                icone: "fa-solid fa-users",
+                capa: "gestao",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Android%20CiberSeguran%C3%A7a.png",
+                subtitulo: "Proteção familiar",
+                destaque: false,
                 link: "#"
             },
 
             // ══════════════════════════════════════════════════════
-            // CIBERSEGURANÇA
+            // 🚀 MARKETING DIGITAL
             // ══════════════════════════════════════════════════════
             {
-                id: 10,
-                titulo: "Android Ciber Segurança",
-                categoria: "Cibersegurança",
+                id: 16,
+                titulo: "Marketing Digital para Afiliados",
+                categoria: "Marketing Digital",
                 preco: 15.98,
                 precoOld: 29.90,
-                descCurta: "O guia prático de cibersegurança para celulares Android: proteger, prevenir e reagir.",
-                descLonga: "Um guia prático e acessível sobre cibersegurança para celulares Android. Você vai aprender a configurar bloqueios seguros, proteger contas, reconhecer golpes, preparar-se para perda ou roubo do aparelho e responder a incidentes. Escrito para iniciantes e intermediários, com foco no uso cotidiano no Brasil. Inclui checklists, planos de ação e explicações sobre as camadas de segurança do Android — sem promessas de invulnerabilidade.",
+                descCurta: "Aprenda a ganhar comissões promovendo produtos de terceiros — do zero e com estratégia.",
+                descLonga: "Um guia introdutório sobre marketing de afiliados para quem quer começar a ganhar dinheiro promovendo produtos de terceiros. Você vai aprender como funciona o modelo, como escolher plataformas e produtos, como divulgar de forma ética, como criar conteúdo de recomendação e como acompanhar resultados. Inclui dicas de transparência e boas práticas.",
                 beneficios: [
-                    "Configurações essenciais de proteção",
-                    "Senhas, biometria e Conta Google segura",
-                    "Como reconhecer golpes e agir",
-                    "Preparação para roubo, perda e incidentes"
+                    "Como funciona o marketing de afiliados",
+                    "Escolha de plataformas e produtos",
+                    "Estratégias de divulgação ética",
+                    "Acompanhamento de resultados e métricas"
                 ],
-                icone: "fa-solid fa-mobile-screen-button",
-                capa: "gestao",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Android%20CiberSeguran%C3%A7a.png",
-                subtitulo: "Proteger · Prevenir · Reagir",
+                icone: "fa-solid fa-link",
+                capa: "empreendedor",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
+                subtitulo: "Renda extra",
                 destaque: false,
                 link: "#"
             }
@@ -1358,9 +1452,12 @@
         const CATEGORIAS = [
             { key: "Todas", label: "Todas", icon: "fa-solid fa-layer-group" },
             { key: "Destaque", label: "Destaque", icon: "fa-solid fa-star" },
-            { key: "Ferramentas", label: "Ferramentas", icon: "fa-solid fa-toolbox" },
+            { key: "Inteligência Artificial", label: "Inteligência Artificial", icon: "fa-solid fa-brain" },
+            { key: "Instagram", label: "Instagram", icon: "fa-brands fa-instagram" },
+            { key: "YouTube", label: "YouTube", icon: "fa-brands fa-youtube" },
             { key: "TikTok Shop", label: "TikTok Shop", icon: "fa-brands fa-tiktok" },
-            { key: "Cibersegurança", label: "Cibersegurança", icon: "fa-solid fa-shield-halved" }
+            { key: "Cibersegurança", label: "Cibersegurança", icon: "fa-solid fa-shield-halved" },
+            { key: "Marketing Digital", label: "Marketing Digital", icon: "fa-solid fa-bullhorn" }
         ];
 
         // ============================================================
@@ -1374,6 +1471,10 @@
         // ============================================================
         function formatarPreco(valor) {
             return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+        }
+
+        function capaClasse(capa) {
+            return "cover-style-" + capa;
         }
 
         // ============================================================
@@ -1435,7 +1536,7 @@
                 card.innerHTML = `
                     <div class="ebook-cover-img">
                         <img src="${eb.imagem}" alt="Capa do e-book ${eb.titulo}" loading="lazy" 
-                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\\'ebook-cover-fallback ${'cover-style-' + eb.capa}\\'><div style=\\'position:relative;z-index:2;\\'><div style=\\'font-size:0.6rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;opacity:0.85;\\'>DataDesh</div></div><div style=\\'position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;\\'><div style=\\'font-size:1.15rem;font-weight:900;line-height:1.15;margin-bottom:8px;\\'>${eb.titulo}</div><div style=\\'font-size:0.7rem;opacity:0.85;text-transform:uppercase;letter-spacing:0.05em;\\'>${eb.subtitulo}</div></div><div style=\\'position:relative;z-index:2;font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;opacity:0.85;\\'>E-book • PDF</div></div>';">
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\\'ebook-cover-fallback ${'cover-style-' + eb.capa}\\' style=\\'aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;padding:24px 20px;color:white;position:relative;overflow:hidden;\\'><div style=\\'font-size:1.15rem;font-weight:900;line-height:1.15;\\'>${eb.titulo}</div><div style=\\'font-size:0.7rem;opacity:0.85;text-transform:uppercase;\\'>${eb.subtitulo}</div></div>';">
                     </div>
                     <div class="ebook-info">
                         <span class="ebook-category"><i class="fa-solid fa-tag"></i> ${eb.categoria}</span>
@@ -1625,7 +1726,7 @@
         // ============================================================
         // REVEAL ON SCROLL
         // ============================================================
-        const reveals = document.querySelectorAll('.reveal, .reveal-tilt');
+        const reveals = document.querySelectorAll('.reveal');
         function checkReveals() {
             reveals.forEach(el => {
                 const rect = el.getBoundingClientRect();
@@ -1685,13 +1786,13 @@
         renderizarCards();
 
         // ============================================================
-        // JSON-LD — SEO (schema Product)
+        // JSON-LD — SEO
         // ============================================================
         const jsonLd = {
             "@context": "https://schema.org",
             "@type": "ItemList",
             "name": "Livraria Digital DataDesh",
-            "description": "E-books práticos sobre TikTok Shop, IA, cibersegurança, marketing digital e empreendedorismo.",
+            "description": "E-books práticos sobre IA, Instagram, YouTube, TikTok Shop, cibersegurança e marketing digital.",
             "itemListElement": ebooks.map((eb, idx) => ({
                 "@type": "ListItem",
                 "position": idx + 1,
@@ -1712,7 +1813,7 @@
         };
         const scriptLd = document.createElement('script');
         scriptLd.type = 'application/ld+json';
-        scriptLd.textContent = JSON.stringify(jsonLd);
+        scriptLd.textContent = JSON.stringify(JSON.parse(JSON.stringify(jsonLd)));
         document.head.appendChild(scriptLd);
     </script>
 
