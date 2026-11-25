@@ -60,10 +60,6 @@
             0%, 100% { box-shadow: 0 0 40px rgba(15, 118, 110, 0.04); }
             50% { box-shadow: 0 0 80px rgba(15, 118, 110, 0.10); }
         }
-        @keyframes comboShine {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(5%, 5%) rotate(10deg); }
-        }
 
         .reveal {
             opacity: 0;
@@ -585,131 +581,22 @@
             transform: scale(1.05);
         }
 
-        /* ===================== CAPA DOS COMBOS (MELHORADA) ===================== */
-        .ebook-cover-combo {
+        /* Capa dos combos agora com IMAGEM real */
+        .ebook-cover-combo-img {
             aspect-ratio: 3/4;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 28px 24px;
             position: relative;
             overflow: hidden;
-            color: white;
-            background: linear-gradient(145deg, #7c3aed 0%, #6366f1 40%, #0f766e 100%);
+            background: linear-gradient(135deg, #7c3aed 0%, #0f766e 100%);
         }
-        .ebook-cover-combo::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: 
-                radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25) 0%, transparent 35%),
-                radial-gradient(circle at 70% 70%, rgba(255,255,255,0.15) 0%, transparent 35%);
-            animation: comboShine 8s ease-in-out infinite;
-            pointer-events: none;
+        .ebook-cover-combo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .ebook-cover-combo::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.35) 100%);
-            pointer-events: none;
-        }
-        .combo-brand {
-            position: relative;
-            z-index: 2;
-            font-size: 0.68rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            opacity: 0.95;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255,255,255,0.15);
-            padding: 6px 12px;
-            border-radius: 50px;
-            align-self: flex-start;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.25);
-        }
-        .combo-brand img { width: 16px; height: 16px; border-radius: 4px; object-fit: cover; }
-        .combo-middle {
-            position: relative;
-            z-index: 2;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 20px 0;
-        }
-        .combo-icon-wrap {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.35);
-            display: grid;
-            place-items: center;
-            margin-bottom: 18px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-        .combo-icon {
-            font-size: 2rem;
-            color: white;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-        }
-        .combo-title {
-            font-size: 1.35rem;
-            font-weight: 900;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.25);
-        }
-        .combo-subtitle {
-            font-size: 0.72rem;
-            font-weight: 700;
-            opacity: 0.95;
-            line-height: 1.4;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255,255,255,0.15);
-            padding: 6px 12px;
-            border-radius: 50px;
-            align-self: flex-start;
-            backdrop-filter: blur(10px);
-        }
-        .combo-subtitle i { font-size: 0.7rem; }
-        .combo-bottom {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 0.68rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-        .combo-bottom span:first-child {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .combo-badge {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: #1a2332;
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 0.65rem;
-            font-weight: 900;
-            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
-            border: 1px solid rgba(255,255,255,0.3);
+        .ebook-card:hover .ebook-cover-combo-img img {
+            transform: scale(1.05);
         }
 
         .ebook-info {
@@ -917,34 +804,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-        .modal-cover.combo-cover {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 28px 22px;
-            background: linear-gradient(145deg, #7c3aed 0%, #6366f1 40%, #0f766e 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        .modal-cover.combo-cover::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: 
-                radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25) 0%, transparent 35%),
-                radial-gradient(circle at 70% 70%, rgba(255,255,255,0.15) 0%, transparent 35%);
-            animation: comboShine 8s ease-in-out infinite;
-            pointer-events: none;
-        }
-        .modal-cover.combo-cover::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.35) 100%);
-            pointer-events: none;
         }
 
         .modal-price-box {
@@ -1228,10 +1087,6 @@
                 gap: 16px;
             }
             .modal-cover { width: 120px; flex-shrink: 0; }
-            .modal-cover.combo-cover { padding: 12px 10px; }
-            .modal-cover.combo-cover .combo-title { font-size: 0.7rem; }
-            .modal-cover.combo-cover .combo-icon { font-size: 1.2rem; }
-            .modal-cover.combo-cover .combo-icon-wrap { width: 40px; height: 40px; margin-bottom: 8px; }
             .modal-cover-side .modal-price-box { flex: 1; padding: 12px; }
             .modal-price-box .price-new { font-size: 1.5rem; }
             .modal-info-side { padding: 24px; }
@@ -1391,11 +1246,11 @@
 
     <script>
         // ============================================================
-        // CATÁLOGO — E-BOOKS + COMBOS
+        // CATÁLOGO — E-BOOKS + COMBOS COM IMAGENS REAIS
         // ============================================================
         const ebooks = [
             // ══════════════════════════════════════════════════════
-            // ⭐ DESTAQUE (Android Ciber Segurança aparece em Destaque E Cibersegurança)
+            // ⭐ DESTAQUE (2 ebooks)
             // ══════════════════════════════════════════════════════
             {
                 id: 1,
@@ -1422,8 +1277,8 @@
             {
                 id: 2,
                 titulo: "Android Ciber Segurança",
-                categoria: "Cibersegurança",
-                categorias: ["Cibersegurança", "Destaque"],
+                categoria: "Destaque",
+                categorias: ["Destaque", "Cibersegurança"],
                 preco: 29.98,
                 precoOld: 49.90,
                 descCurta: "O guia prático de cibersegurança para celulares Android: proteger, prevenir e reagir.",
@@ -1749,7 +1604,7 @@
             },
 
             // ══════════════════════════════════════════════════════
-            // 🎁 COMBOS PREMIUM
+            // 🎁 COMBOS PREMIUM (AGORA COM IMAGENS REAIS)
             // ══════════════════════════════════════════════════════
             {
                 id: 100,
@@ -1768,6 +1623,7 @@
                 ],
                 icone: "fa-solid fa-star",
                 capa: "combo",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Combo%20Destaque.png",
                 isCombo: true,
                 comboItens: ["TikTokShop Monetizar", "Android Ciber Segurança"],
                 destaque: false,
@@ -1790,6 +1646,7 @@
                 ],
                 icone: "fa-solid fa-brain",
                 capa: "combo",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Combo%20IA.png",
                 isCombo: true,
                 comboItens: ["Como Ganhar Dinheiro com IA em 2026", "IA para Pequenos Negócios", "IA para Professores"],
                 destaque: false,
@@ -1812,6 +1669,7 @@
                 ],
                 icone: "fa-brands fa-instagram",
                 capa: "combo",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Combo%20Instagram.png",
                 isCombo: true,
                 comboItens: ["Instagram que Vende", "Reels que Viralizam", "Stories que Convertem"],
                 destaque: false,
@@ -1834,6 +1692,7 @@
                 ],
                 icone: "fa-brands fa-youtube",
                 capa: "combo",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Combo%20Youtube.png",
                 isCombo: true,
                 comboItens: ["YouTube do Zero para Empreendedores", "Roteiros que Retêm", "YouTube SEO e Crescimento"],
                 destaque: false,
@@ -1856,6 +1715,7 @@
                 ],
                 icone: "fa-brands fa-tiktok",
                 capa: "combo",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Combo%20TiktokShop.png",
                 isCombo: true,
                 comboItens: ["TikTokShop Monetizar", "Como Abrir Sua Loja", "Criador ao Afiliado", "Como Crescer Sua Conta"],
                 destaque: false,
@@ -1878,6 +1738,7 @@
                 ],
                 icone: "fa-solid fa-shield-halved",
                 capa: "combo",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Como%20CiberSeguran%C3%A7a.png",
                 isCombo: true,
                 comboItens: ["Android Ciber Segurança", "Cibersegurança para Famílias"],
                 destaque: false,
@@ -1928,7 +1789,7 @@
         }
 
         // ============================================================
-        // RENDERIZAR CHIPS DE CATEGORIA
+        // RENDERIZAR CHIPS
         // ============================================================
         function renderizarChips() {
             const container = document.getElementById("categoryChips");
@@ -1947,7 +1808,7 @@
         }
 
         // ============================================================
-        // RENDERIZAR CARD INDIVIDUAL
+        // RENDERIZAR CARD INDIVIDUAL (AGORA USA IMAGEM DO COMBO)
         // ============================================================
         function renderizarCardHTML(eb) {
             let cardClasses = "ebook-card";
@@ -1963,31 +1824,11 @@
                 ? `<span class="combo-economy">💰 Economize R$ ${economia}</span>`
                 : "";
 
-            const capaHTML = eb.isCombo
-                ? `<div class="ebook-cover-combo">
-                        <div class="combo-brand">
-                            <img src="${LOGO_URL}" alt="DataDesh">
-                            DataDesh
-                        </div>
-                        <div class="combo-middle">
-                            <div class="combo-icon-wrap">
-                                <i class="${eb.icone} combo-icon"></i>
-                            </div>
-                            <div class="combo-title">${eb.titulo}</div>
-                            <div class="combo-subtitle">
-                                <i class="fa-solid fa-layer-group"></i>
-                                ${eb.comboItens.length} e-books em 1
-                            </div>
-                        </div>
-                        <div class="combo-bottom">
-                            <span><i class="fa-solid fa-file-pdf"></i> PDF</span>
-                            <span class="combo-badge">COMBO</span>
-                        </div>
-                    </div>`
-                : `<div class="ebook-cover-img">
-                        <img src="${eb.imagem}" alt="Capa do e-book ${eb.titulo}" loading="lazy" 
-                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\\'aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;padding:24px 20px;color:white;position:relative;overflow:hidden;background:linear-gradient(135deg,#0f766e,#7c3aed);\\'><div style=\\'font-size:1.15rem;font-weight:900;line-height:1.15;\\'>${eb.titulo}</div><div style=\\'font-size:0.7rem;opacity:0.85;text-transform:uppercase;\\'>${eb.subtitulo || ''}</div></div>';">
-                    </div>`;
+            // TODOS usam imagem real (inclusive os combos, agora)
+            const capaHTML = `<div class="${eb.isCombo ? 'ebook-cover-combo-img' : 'ebook-cover-img'}">
+                <img src="${eb.imagem}" alt="Capa do ${eb.titulo}" loading="lazy" 
+                     onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\\'aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;padding:24px 20px;color:white;position:relative;overflow:hidden;background:linear-gradient(135deg,#0f766e,#7c3aed);\\'><div style=\\'font-size:1.15rem;font-weight:900;line-height:1.15;\\'>${eb.titulo}</div><div style=\\'font-size:0.7rem;opacity:0.85;text-transform:uppercase;\\'>${eb.isCombo ? eb.comboItens.length + ' e-books em 1' : (eb.subtitulo || '')}</div></div>';">
+            </div>`;
 
             return `
                 <article class="${cardClasses}">
@@ -2055,7 +1896,7 @@
         }
 
         // ============================================================
-        // RENDERIZAR EM SEÇÕES (para o tópico "Todas")
+        // RENDERIZAR EM SEÇÕES (Todas)
         // Ordem: DESTAQUES → Categorias → COMBOS NO FINAL
         // ============================================================
         function renderizarPorSecoes(container, todos) {
@@ -2141,30 +1982,9 @@
                 .map(b => `<li><i class="fa-solid fa-check"></i> ${b}</li>`)
                 .join("");
 
-            const capaHTML = eb.isCombo
-                ? `<div class="modal-cover combo-cover">
-                        <div class="combo-brand">
-                            <img src="${LOGO_URL}" alt="DataDesh">
-                            DataDesh
-                        </div>
-                        <div class="combo-middle">
-                            <div class="combo-icon-wrap" style="width:80px;height:80px;margin-bottom:20px;">
-                                <i class="${eb.icone} combo-icon" style="font-size:2.2rem;"></i>
-                            </div>
-                            <div class="combo-title" style="font-size:1.5rem;">${eb.titulo}</div>
-                            <div class="combo-subtitle">
-                                <i class="fa-solid fa-layer-group"></i>
-                                ${eb.comboItens.length} e-books em 1
-                            </div>
-                        </div>
-                        <div class="combo-bottom">
-                            <span><i class="fa-solid fa-file-pdf"></i> PDF</span>
-                            <span class="combo-badge">COMBO</span>
-                        </div>
-                    </div>`
-                : `<div class="modal-cover">
-                        <img src="${eb.imagem}" alt="Capa do e-book ${eb.titulo}">
-                    </div>`;
+            const capaHTML = `<div class="modal-cover">
+                <img src="${eb.imagem}" alt="Capa do ${eb.titulo}">
+            </div>`;
 
             const comboListHTML = eb.isCombo && eb.comboItens
                 ? `<div>
