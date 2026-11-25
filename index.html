@@ -60,6 +60,10 @@
             0%, 100% { box-shadow: 0 0 40px rgba(15, 118, 110, 0.04); }
             50% { box-shadow: 0 0 80px rgba(15, 118, 110, 0.10); }
         }
+        @keyframes comboShine {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(5%, 5%) rotate(10deg); }
+        }
 
         .reveal {
             opacity: 0;
@@ -430,10 +434,7 @@
             font-weight: 600;
         }
 
-        /* SEÇÕES POR CATEGORIA (quando "Todas" está ativo) */
-        .category-section {
-            margin-bottom: 48px;
-        }
+        .category-section { margin-bottom: 48px; }
         .category-section:last-child { margin-bottom: 0; }
 
         .category-section-header {
@@ -476,6 +477,12 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        .category-section-title.destaque {
+            background: linear-gradient(135deg, var(--accent), #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         .category-section-subtitle {
             font-size: 0.82rem;
             color: var(--text-light);
@@ -493,14 +500,12 @@
             border: 1px solid var(--border);
         }
 
-        /* COMBOS EM LINHA (grid próprio) */
         .combos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 20px;
         }
 
-        /* E-BOOKS GRID NORMAL */
         .ebooks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -580,39 +585,55 @@
             transform: scale(1.05);
         }
 
+        /* ===================== CAPA DOS COMBOS (MELHORADA) ===================== */
         .ebook-cover-combo {
             aspect-ratio: 3/4;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 28px 22px;
+            padding: 28px 24px;
             position: relative;
             overflow: hidden;
             color: white;
-            background: linear-gradient(135deg, #7c3aed 0%, #0f766e 100%);
+            background: linear-gradient(145deg, #7c3aed 0%, #6366f1 40%, #0f766e 100%);
+        }
+        .ebook-cover-combo::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25) 0%, transparent 35%),
+                radial-gradient(circle at 70% 70%, rgba(255,255,255,0.15) 0%, transparent 35%);
+            animation: comboShine 8s ease-in-out infinite;
+            pointer-events: none;
         }
         .ebook-cover-combo::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 40%);
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.35) 100%);
             pointer-events: none;
         }
         .combo-brand {
             position: relative;
             z-index: 2;
-            font-size: 0.65rem;
+            font-size: 0.68rem;
             font-weight: 800;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            opacity: 0.9;
+            opacity: 0.95;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            padding: 6px 12px;
+            border-radius: 50px;
+            align-self: flex-start;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.25);
         }
-        .combo-brand img { width: 18px; height: 18px; border-radius: 4px; object-fit: cover; }
+        .combo-brand img { width: 16px; height: 16px; border-radius: 4px; object-fit: cover; }
         .combo-middle {
             position: relative;
             z-index: 2;
@@ -620,47 +641,74 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 16px 0;
+            padding: 20px 0;
+        }
+        .combo-icon-wrap {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.35);
+            display: grid;
+            place-items: center;
+            margin-bottom: 18px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
         .combo-icon {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
-            opacity: 0.9;
+            font-size: 2rem;
+            color: white;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
         .combo-title {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 900;
             line-height: 1.15;
             letter-spacing: -0.02em;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.25);
         }
         .combo-subtitle {
-            font-size: 0.7rem;
-            font-weight: 600;
-            opacity: 0.9;
+            font-size: 0.72rem;
+            font-weight: 700;
+            opacity: 0.95;
             line-height: 1.4;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            padding: 6px 12px;
+            border-radius: 50px;
+            align-self: flex-start;
+            backdrop-filter: blur(10px);
         }
+        .combo-subtitle i { font-size: 0.7rem; }
         .combo-bottom {
             position: relative;
             z-index: 2;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            opacity: 0.9;
+        }
+        .combo-bottom span:first-child {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .combo-badge {
-            background: rgba(255,255,255,0.25);
-            padding: 4px 10px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1a2332;
+            padding: 6px 14px;
             border-radius: 50px;
-            font-size: 0.6rem;
-            backdrop-filter: blur(10px);
+            font-size: 0.65rem;
+            font-weight: 900;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
             border: 1px solid rgba(255,255,255,0.3);
         }
 
@@ -771,7 +819,6 @@
             box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
         }
 
-        /* ===================== ESTADO VAZIO ===================== */
         .empty-state {
             grid-column: 1 / -1;
             text-align: center;
@@ -876,8 +923,28 @@
             flex-direction: column;
             justify-content: space-between;
             padding: 28px 22px;
-            background: linear-gradient(135deg, #7c3aed 0%, #0f766e 100%);
+            background: linear-gradient(145deg, #7c3aed 0%, #6366f1 40%, #0f766e 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .modal-cover.combo-cover::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25) 0%, transparent 35%),
+                radial-gradient(circle at 70% 70%, rgba(255,255,255,0.15) 0%, transparent 35%);
+            animation: comboShine 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .modal-cover.combo-cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.35) 100%);
+            pointer-events: none;
         }
 
         .modal-price-box {
@@ -1163,7 +1230,8 @@
             .modal-cover { width: 120px; flex-shrink: 0; }
             .modal-cover.combo-cover { padding: 12px 10px; }
             .modal-cover.combo-cover .combo-title { font-size: 0.7rem; }
-            .modal-cover.combo-cover .combo-icon { font-size: 1.2rem; margin-bottom: 4px; }
+            .modal-cover.combo-cover .combo-icon { font-size: 1.2rem; }
+            .modal-cover.combo-cover .combo-icon-wrap { width: 40px; height: 40px; margin-bottom: 8px; }
             .modal-cover-side .modal-price-box { flex: 1; padding: 12px; }
             .modal-price-box .price-new { font-size: 1.5rem; }
             .modal-info-side { padding: 24px; }
@@ -1323,11 +1391,11 @@
 
     <script>
         // ============================================================
-        // CATÁLOGO — E-BOOKS + COMBOS POR CATEGORIA
+        // CATÁLOGO — E-BOOKS + COMBOS
         // ============================================================
         const ebooks = [
             // ══════════════════════════════════════════════════════
-            // ⭐ DESTAQUE
+            // ⭐ DESTAQUE (Android Ciber Segurança aparece em Destaque E Cibersegurança)
             // ══════════════════════════════════════════════════════
             {
                 id: 1,
@@ -1354,8 +1422,8 @@
             {
                 id: 2,
                 titulo: "Android Ciber Segurança",
-                categoria: "Destaque",
-                categorias: ["Destaque", "Cibersegurança"],
+                categoria: "Cibersegurança",
+                categorias: ["Cibersegurança", "Destaque"],
                 preco: 29.98,
                 precoOld: 49.90,
                 descCurta: "O guia prático de cibersegurança para celulares Android: proteger, prevenir e reagir.",
@@ -1832,14 +1900,14 @@
             { key: "Cibersegurança", label: "Cibersegurança", icon: "fa-solid fa-shield-halved", subtitle: "Proteja seu celular e sua família" }
         ];
 
-        // Ordem das seções no tópico "Todas"
+        // Ordem das seções no tópico "Todas" — DESTAQUES PRIMEIRO
         const ORDEM_SECOES = [
+            "Destaque",
             "Inteligência Artificial",
             "Instagram",
             "YouTube",
             "TikTok Shop",
-            "Cibersegurança",
-            "Destaque"
+            "Cibersegurança"
         ];
 
         // ============================================================
@@ -1879,7 +1947,7 @@
         }
 
         // ============================================================
-        // RENDERIZAR CARD INDIVIDUAL (RETORNA HTML)
+        // RENDERIZAR CARD INDIVIDUAL
         // ============================================================
         function renderizarCardHTML(eb) {
             let cardClasses = "ebook-card";
@@ -1902,12 +1970,17 @@
                             DataDesh
                         </div>
                         <div class="combo-middle">
-                            <i class="${eb.icone} combo-icon"></i>
+                            <div class="combo-icon-wrap">
+                                <i class="${eb.icone} combo-icon"></i>
+                            </div>
                             <div class="combo-title">${eb.titulo}</div>
-                            <div class="combo-subtitle">${eb.comboItens.length} ebooks em 1</div>
+                            <div class="combo-subtitle">
+                                <i class="fa-solid fa-layer-group"></i>
+                                ${eb.comboItens.length} e-books em 1
+                            </div>
                         </div>
                         <div class="combo-bottom">
-                            <span>E-books • PDF</span>
+                            <span><i class="fa-solid fa-file-pdf"></i> PDF</span>
                             <span class="combo-badge">COMBO</span>
                         </div>
                     </div>`
@@ -1945,7 +2018,6 @@
             const container = document.getElementById("catalogoContainer");
             const countEl = document.getElementById("resultsCount");
 
-            // FILTRO
             let filtrados = ebooks.filter(eb => {
                 const matchCategoria = categoriaAtiva === "Todas" || eb.categorias.includes(categoriaAtiva);
                 const matchBusca = termoBusca === "" ||
@@ -1967,11 +2039,9 @@
                 return;
             }
 
-            // SE FOR "TODAS" → organiza em seções por categoria
             if (categoriaAtiva === "Todas") {
                 renderizarPorSecoes(container, filtrados);
             } else {
-                // SE FOR UMA CATEGORIA ESPECÍFICA → todos os cards em um grid só
                 container.innerHTML = `
                     <div class="ebooks-grid">
                         ${filtrados.map(eb => renderizarCardHTML(eb)).join("")}
@@ -1979,7 +2049,6 @@
                 `;
             }
 
-            // Adiciona eventos a todos os botões "Ver detalhes"
             container.querySelectorAll(".btn-details").forEach(btn => {
                 btn.addEventListener("click", () => abrirModal(parseInt(btn.dataset.id)));
             });
@@ -1987,13 +2056,12 @@
 
         // ============================================================
         // RENDERIZAR EM SEÇÕES (para o tópico "Todas")
+        // Ordem: DESTAQUES → Categorias → COMBOS NO FINAL
         // ============================================================
         function renderizarPorSecoes(container, todos) {
-            // 1. Separa combos de não-combos
             const combos = todos.filter(eb => eb.isCombo);
             const naoCombos = todos.filter(eb => !eb.isCombo);
 
-            // 2. Agrupa não-combos por categoria (usando a primeira categoria do array)
             const porCategoria = {};
             naoCombos.forEach(eb => {
                 const cat = eb.categoria;
@@ -2003,7 +2071,34 @@
 
             let html = "";
 
-            // 3. Seção de COMBOS PREMIUM (se houver combos)
+            // Seções por categoria (Destaques primeiro)
+            ORDEM_SECOES.forEach(catKey => {
+                const itens = porCategoria[catKey];
+                if (!itens || itens.length === 0) return;
+
+                const meta = getCategoriaMeta(catKey);
+                const iconClass = catKey === "Destaque" ? "destaque" : "";
+
+                html += `
+                    <div class="category-section">
+                        <div class="category-section-header">
+                            <div class="category-section-icon ${iconClass}">
+                                <i class="${meta.icon}"></i>
+                            </div>
+                            <div>
+                                <h3 class="category-section-title ${iconClass}">${catKey}</h3>
+                                <div class="category-section-subtitle">${meta.subtitle}</div>
+                            </div>
+                            <span class="category-section-count">${itens.length} ${itens.length === 1 ? 'ebook' : 'ebooks'}</span>
+                        </div>
+                        <div class="ebooks-grid">
+                            ${itens.map(eb => renderizarCardHTML(eb)).join("")}
+                        </div>
+                    </div>
+                `;
+            });
+
+            // COMBOS PREMIUM NO FINAL
             if (combos.length > 0) {
                 const combosOrdenados = [...combos].sort((a, b) => a.id - b.id);
                 html += `
@@ -2024,33 +2119,6 @@
                     </div>
                 `;
             }
-
-            // 4. Seções por categoria (na ordem definida)
-            ORDEM_SECOES.forEach(catKey => {
-                const itens = porCategoria[catKey];
-                if (!itens || itens.length === 0) return;
-
-                const meta = getCategoriaMeta(catKey);
-                const iconClass = catKey === "Destaque" ? "destaque" : "";
-
-                html += `
-                    <div class="category-section">
-                        <div class="category-section-header">
-                            <div class="category-section-icon ${iconClass}">
-                                <i class="${meta.icon}"></i>
-                            </div>
-                            <div>
-                                <h3 class="category-section-title">${catKey}</h3>
-                                <div class="category-section-subtitle">${meta.subtitle}</div>
-                            </div>
-                            <span class="category-section-count">${itens.length} ${itens.length === 1 ? 'ebook' : 'ebooks'}</span>
-                        </div>
-                        <div class="ebooks-grid">
-                            ${itens.map(eb => renderizarCardHTML(eb)).join("")}
-                        </div>
-                    </div>
-                `;
-            });
 
             container.innerHTML = html;
         }
@@ -2080,12 +2148,17 @@
                             DataDesh
                         </div>
                         <div class="combo-middle">
-                            <i class="${eb.icone} combo-icon"></i>
-                            <div class="combo-title">${eb.titulo}</div>
-                            <div class="combo-subtitle">${eb.comboItens.length} ebooks em 1</div>
+                            <div class="combo-icon-wrap" style="width:80px;height:80px;margin-bottom:20px;">
+                                <i class="${eb.icone} combo-icon" style="font-size:2.2rem;"></i>
+                            </div>
+                            <div class="combo-title" style="font-size:1.5rem;">${eb.titulo}</div>
+                            <div class="combo-subtitle">
+                                <i class="fa-solid fa-layer-group"></i>
+                                ${eb.comboItens.length} e-books em 1
+                            </div>
                         </div>
                         <div class="combo-bottom">
-                            <span>E-books • PDF</span>
+                            <span><i class="fa-solid fa-file-pdf"></i> PDF</span>
                             <span class="combo-badge">COMBO</span>
                         </div>
                     </div>`
