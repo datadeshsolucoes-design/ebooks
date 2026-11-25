@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livraria Digital | DataDesh Soluções</title>
-    <meta name="description" content="E-books práticos sobre IA, Instagram, YouTube, TikTok Shop, cibersegurança e marketing digital. Conhecimento que transforma ideias em possibilidades." />
+    <meta name="description" content="E-books práticos sobre IA, Instagram, YouTube, TikTok Shop e cibersegurança. Conhecimento que transforma ideias em possibilidades." />
     <meta property="og:title" content="Livraria Digital | DataDesh Soluções" />
-    <meta property="og:description" content="E-books práticos sobre IA, Instagram, YouTube, TikTok Shop, cibersegurança e marketing digital." />
+    <meta property="og:description" content="E-books práticos sobre IA, Instagram, YouTube, TikTok Shop e cibersegurança." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://raw.githubusercontent.com/datadeshsolucoes-design/Servicos-digitais/main/logo.jpeg" />
     
@@ -399,7 +399,7 @@
         }
         .chip i { font-size: 0.75rem; }
 
-        /* ===================== GRID DE E-BOOKS ===================== */
+        /* ===================== CATÁLOGO ===================== */
         .catalog-section {
             padding: 30px 0 90px;
             position: relative;
@@ -430,6 +430,77 @@
             font-weight: 600;
         }
 
+        /* SEÇÕES POR CATEGORIA (quando "Todas" está ativo) */
+        .category-section {
+            margin-bottom: 48px;
+        }
+        .category-section:last-child { margin-bottom: 0; }
+
+        .category-section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--border);
+        }
+        .category-section-icon {
+            width: 46px; height: 46px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(15, 118, 110, 0.2);
+        }
+        .category-section-icon.premium {
+            background: linear-gradient(135deg, var(--combo), #6d28d9);
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+        }
+        .category-section-icon.destaque {
+            background: linear-gradient(135deg, var(--accent), #d97706);
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.3);
+        }
+        .category-section-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+        .category-section-title.premium {
+            background: linear-gradient(135deg, var(--combo), #6d28d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .category-section-subtitle {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+        .category-section-count {
+            margin-left: auto;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            background: var(--bg);
+            padding: 4px 12px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+        }
+
+        /* COMBOS EM LINHA (grid próprio) */
+        .combos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        /* E-BOOKS GRID NORMAL */
         .ebooks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -509,7 +580,6 @@
             transform: scale(1.05);
         }
 
-        /* Capa especial para combos */
         .ebook-cover-combo {
             aspect-ratio: 3/4;
             display: flex;
@@ -558,7 +628,7 @@
             opacity: 0.9;
         }
         .combo-title {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 900;
             line-height: 1.15;
             letter-spacing: -0.02em;
@@ -566,7 +636,7 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         .combo-subtitle {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 600;
             opacity: 0.9;
             line-height: 1.4;
@@ -579,7 +649,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             font-weight: 700;
             letter-spacing: 0.06em;
             text-transform: uppercase;
@@ -1103,11 +1173,14 @@
             .footer-top { grid-template-columns: 1fr; }
             .hero-ebooks { padding: 50px 0 30px; }
             .ebooks-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+            .combos-grid { grid-template-columns: 1fr; gap: 16px; }
             .filters-bar { padding: 16px; }
             .modal-info-side { padding: 20px; }
             .modal-cover-side { padding: 16px; }
             .modal-cover { width: 100px; }
             .combo-economy { display: none; }
+            .category-section-header { flex-wrap: wrap; }
+            .category-section-count { margin-left: 0; }
         }
     </style>
 </head>
@@ -1155,7 +1228,7 @@
                 <i class="fa-solid fa-book-open"></i> Livraria Digital DataDesh
             </div>
             <h1 class="reveal">Conhecimento que transforma <span class="highlight">ideias em possibilidades</span></h1>
-            <p class="reveal">Explore nossa biblioteca digital e encontre materiais práticos para aprender, evoluir e descobrir novas oportunidades. E-books sobre IA, Instagram, YouTube, TikTok Shop, cibersegurança e marketing digital.</p>
+            <p class="reveal">Explore nossa biblioteca digital e encontre materiais práticos para aprender, evoluir e descobrir novas oportunidades. E-books sobre IA, Instagram, YouTube, TikTok Shop e cibersegurança.</p>
             <div class="hero-actions reveal">
                 <a href="#catalogo" class="btn btn-primary btn-glow"><i class="fa-solid fa-book"></i> Explorar E-books</a>
                 <a href="https://wa.me/5531984987116" class="btn btn-secondary" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Tirar dúvidas</a>
@@ -1192,8 +1265,8 @@
                 <h2>Nossa <span>biblioteca</span></h2>
                 <span class="results-count" id="resultsCount">Carregando...</span>
             </div>
-            <div class="ebooks-grid" id="ebooksGrid">
-                <!-- Cards renderizados via JS -->
+            <div id="catalogoContainer">
+                <!-- Preenchido via JS -->
             </div>
         </div>
     </section>
@@ -1214,7 +1287,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <h4>DataDesh Soluções</h4>
-                    <p>Soluções digitais personalizadas para pequenos negócios. Livraria digital com e-books práticos sobre IA, Instagram, YouTube, TikTok Shop, cibersegurança e marketing digital.</p>
+                    <p>Soluções digitais personalizadas para pequenos negócios. Livraria digital com e-books práticos sobre IA, Instagram, YouTube, TikTok Shop e cibersegurança.</p>
                     <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 8px;">
                         <strong>CNPJ:</strong> 66.884.261/0001-20
                     </p>
@@ -1302,32 +1375,6 @@
             },
 
             // ══════════════════════════════════════════════════════
-            // 🎁 COMBO DESTAQUE
-            // ══════════════════════════════════════════════════════
-            {
-                id: 100,
-                titulo: "Combo Destaque — Os 2 Mais Procurados",
-                categoria: "Destaque",
-                categorias: ["Destaque"],
-                preco: 49.98,
-                precoOld: 59.96,
-                descCurta: "Os dois ebooks mais procurados da DataDesh por um preço especial — economia real.",
-                descLonga: "Combo com os dois ebooks mais procurados da DataDesh: TikTokShop Monetizar + Android Ciber Segurança. Ideal para quem quer aprender a monetizar no TikTokShop e proteger seu celular Android ao mesmo tempo. Economia real de R$ 9,98 em relação à compra individual.",
-                beneficios: [
-                    "TikTokShop Monetizar (guia completo)",
-                    "Android Ciber Segurança (guia prático)",
-                    "Economia real de R$ 9,98",
-                    "Dois temas essenciais em um só pacote"
-                ],
-                icone: "fa-solid fa-gift",
-                capa: "combo",
-                isCombo: true,
-                comboItens: ["TikTokShop Monetizar", "Android Ciber Segurança"],
-                destaque: false,
-                link: "#"
-            },
-
-            // ══════════════════════════════════════════════════════
             // 🧠 INTELIGÊNCIA ARTIFICIAL
             // ══════════════════════════════════════════════════════
             {
@@ -1393,28 +1440,6 @@
                 capa: "ferramentas",
                 imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20ineteligencia%20artificial%20para%20professores.png",
                 subtitulo: "Prática docente",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 101,
-                titulo: "Combo Inteligência Artificial",
-                categoria: "Inteligência Artificial",
-                categorias: ["Inteligência Artificial"],
-                preco: 49.98,
-                precoOld: 53.94,
-                descCurta: "Os 3 ebooks de IA da DataDesh em um pacote com desconto especial.",
-                descLonga: "Combo completo da linha Inteligência Artificial da DataDesh: Como Ganhar Dinheiro com IA em 2026 + IA para Pequenos Negócios + IA para Professores. Ideal para quem quer dominar a IA do zero ao avançado. Economia real de R$ 3,96 em relação à compra individual.",
-                beneficios: [
-                    "Os 3 ebooks de Inteligência Artificial",
-                    "Economia real de R$ 3,96",
-                    "Do básico ao estratégico",
-                    "Acesso imediato a todo o conteúdo"
-                ],
-                icone: "fa-solid fa-brain",
-                capa: "combo",
-                isCombo: true,
-                comboItens: ["Como Ganhar Dinheiro com IA em 2026", "IA para Pequenos Negócios", "IA para Professores"],
                 destaque: false,
                 link: "#"
             },
@@ -1488,28 +1513,6 @@
                 destaque: false,
                 link: "#"
             },
-            {
-                id: 102,
-                titulo: "Combo Instagram Completo",
-                categoria: "Instagram",
-                categorias: ["Instagram"],
-                preco: 49.98,
-                precoOld: 53.94,
-                descCurta: "Os 3 ebooks de Instagram da DataDesh em um pacote com desconto especial.",
-                descLonga: "Combo completo da linha Instagram da DataDesh: Instagram que Vende + Reels que Viralizam + Stories que Convertem. Ideal para quem quer transformar o Instagram em uma máquina de vendas. Economia real de R$ 3,96 em relação à compra individual.",
-                beneficios: [
-                    "Os 3 ebooks de Instagram",
-                    "Economia real de R$ 3,96",
-                    "Estratégia completa de conteúdo e vendas",
-                    "Acesso imediato a todo o conteúdo"
-                ],
-                icone: "fa-brands fa-instagram",
-                capa: "combo",
-                isCombo: true,
-                comboItens: ["Instagram que Vende", "Reels que Viralizam", "Stories que Convertem"],
-                destaque: false,
-                link: "#"
-            },
 
             // ══════════════════════════════════════════════════════
             // ▶️ YOUTUBE
@@ -1553,7 +1556,7 @@
                 ],
                 icone: "fa-solid fa-clapperboard",
                 capa: "ferramentas",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20youtube%20SEO%20Crescimento.png",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20Youtube%20Roteiros%20que%20Retem.png",
                 subtitulo: "Roteiros & Retenção",
                 destaque: false,
                 link: "#"
@@ -1577,28 +1580,6 @@
                 capa: "ferramentas",
                 imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20youtube%20SEO%20Crescimento.png",
                 subtitulo: "SEO & Crescimento",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 103,
-                titulo: "Combo YouTube Completo",
-                categoria: "YouTube",
-                categorias: ["YouTube"],
-                preco: 49.98,
-                precoOld: 53.94,
-                descCurta: "Os 3 ebooks de YouTube da DataDesh em um pacote com desconto especial.",
-                descLonga: "Combo completo da linha YouTube da DataDesh: YouTube do Zero para Empreendedores + Roteiros que Retêm + YouTube SEO e Crescimento. Ideal para quem quer começar ou crescer no YouTube de forma consistente. Economia real de R$ 3,96 em relação à compra individual.",
-                beneficios: [
-                    "Os 3 ebooks de YouTube",
-                    "Economia real de R$ 3,96",
-                    "Do básico ao avançado em YouTube",
-                    "Acesso imediato a todo o conteúdo"
-                ],
-                icone: "fa-brands fa-youtube",
-                capa: "combo",
-                isCombo: true,
-                comboItens: ["YouTube do Zero para Empreendedores", "Roteiros que Retêm", "YouTube SEO e Crescimento"],
                 destaque: false,
                 link: "#"
             },
@@ -1672,28 +1653,6 @@
                 destaque: false,
                 link: "#"
             },
-            {
-                id: 104,
-                titulo: "Combo TikTok Shop Completo",
-                categoria: "TikTok Shop",
-                categorias: ["TikTok Shop"],
-                preco: 49.98,
-                precoOld: 83.92,
-                descCurta: "Os 4 ebooks de TikTok Shop da DataDesh em um pacote com desconto especial.",
-                descLonga: "Combo completo da linha TikTok Shop da DataDesh: TikTokShop Monetizar + Como Abrir Sua Loja + Criador ao Afiliado + Como Crescer Sua Conta. Ideal para quem quer dominar o TikTokShop do zero à monetização. Economia real de R$ 33,94 em relação à compra individual.",
-                beneficios: [
-                    "Os 4 ebooks de TikTok Shop",
-                    "Economia real de R$ 33,94",
-                    "Do cadastro à monetização",
-                    "Acesso imediato a todo o conteúdo"
-                ],
-                icone: "fa-brands fa-tiktok",
-                capa: "combo",
-                isCombo: true,
-                comboItens: ["TikTokShop Monetizar", "Como Abrir Sua Loja", "Criador ao Afiliado", "Como Crescer Sua Conta"],
-                destaque: false,
-                link: "#"
-            },
 
             // ══════════════════════════════════════════════════════
             // 🛡️ CIBERSEGURANÇA
@@ -1715,14 +1674,128 @@
                 ],
                 icone: "fa-solid fa-users",
                 capa: "gestao",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Android%20CiberSeguran%C3%A7a.png",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20Ciberseguran%C3%A7a%20para%20familias%20guia%20Pr%C3%A1tico.png",
                 subtitulo: "Proteção familiar",
+                destaque: false,
+                link: "#"
+            },
+
+            // ══════════════════════════════════════════════════════
+            // 🎁 COMBOS PREMIUM
+            // ══════════════════════════════════════════════════════
+            {
+                id: 100,
+                titulo: "Combo Destaque",
+                categoria: "Destaque",
+                categorias: ["Destaque"],
+                preco: 49.98,
+                precoOld: 59.96,
+                descCurta: "Os dois ebooks mais procurados da DataDesh por um preço especial.",
+                descLonga: "Combo com os dois ebooks mais procurados da DataDesh: TikTokShop Monetizar + Android Ciber Segurança. Ideal para quem quer aprender a monetizar no TikTokShop e proteger seu celular Android ao mesmo tempo. Economia real de R$ 9,98 em relação à compra individual.",
+                beneficios: [
+                    "TikTokShop Monetizar (guia completo)",
+                    "Android Ciber Segurança (guia prático)",
+                    "Economia real de R$ 9,98",
+                    "Dois temas essenciais em um só pacote"
+                ],
+                icone: "fa-solid fa-star",
+                capa: "combo",
+                isCombo: true,
+                comboItens: ["TikTokShop Monetizar", "Android Ciber Segurança"],
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 101,
+                titulo: "Combo Inteligência Artificial",
+                categoria: "Inteligência Artificial",
+                categorias: ["Inteligência Artificial"],
+                preco: 49.98,
+                precoOld: 53.94,
+                descCurta: "Os 3 ebooks de IA da DataDesh em um pacote com desconto especial.",
+                descLonga: "Combo completo da linha Inteligência Artificial da DataDesh: Como Ganhar Dinheiro com IA em 2026 + IA para Pequenos Negócios + IA para Professores. Ideal para quem quer dominar a IA do zero ao avançado. Economia real de R$ 3,96 em relação à compra individual.",
+                beneficios: [
+                    "Os 3 ebooks de Inteligência Artificial",
+                    "Economia real de R$ 3,96",
+                    "Do básico ao estratégico",
+                    "Acesso imediato a todo o conteúdo"
+                ],
+                icone: "fa-solid fa-brain",
+                capa: "combo",
+                isCombo: true,
+                comboItens: ["Como Ganhar Dinheiro com IA em 2026", "IA para Pequenos Negócios", "IA para Professores"],
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 102,
+                titulo: "Combo Instagram",
+                categoria: "Instagram",
+                categorias: ["Instagram"],
+                preco: 49.98,
+                precoOld: 53.94,
+                descCurta: "Os 3 ebooks de Instagram da DataDesh em um pacote com desconto especial.",
+                descLonga: "Combo completo da linha Instagram da DataDesh: Instagram que Vende + Reels que Viralizam + Stories que Convertem. Ideal para quem quer transformar o Instagram em uma máquina de vendas. Economia real de R$ 3,96 em relação à compra individual.",
+                beneficios: [
+                    "Os 3 ebooks de Instagram",
+                    "Economia real de R$ 3,96",
+                    "Estratégia completa de conteúdo e vendas",
+                    "Acesso imediato a todo o conteúdo"
+                ],
+                icone: "fa-brands fa-instagram",
+                capa: "combo",
+                isCombo: true,
+                comboItens: ["Instagram que Vende", "Reels que Viralizam", "Stories que Convertem"],
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 103,
+                titulo: "Combo YouTube",
+                categoria: "YouTube",
+                categorias: ["YouTube"],
+                preco: 49.98,
+                precoOld: 53.94,
+                descCurta: "Os 3 ebooks de YouTube da DataDesh em um pacote com desconto especial.",
+                descLonga: "Combo completo da linha YouTube da DataDesh: YouTube do Zero para Empreendedores + Roteiros que Retêm + YouTube SEO e Crescimento. Ideal para quem quer começar ou crescer no YouTube de forma consistente. Economia real de R$ 3,96 em relação à compra individual.",
+                beneficios: [
+                    "Os 3 ebooks de YouTube",
+                    "Economia real de R$ 3,96",
+                    "Do básico ao avançado em YouTube",
+                    "Acesso imediato a todo o conteúdo"
+                ],
+                icone: "fa-brands fa-youtube",
+                capa: "combo",
+                isCombo: true,
+                comboItens: ["YouTube do Zero para Empreendedores", "Roteiros que Retêm", "YouTube SEO e Crescimento"],
+                destaque: false,
+                link: "#"
+            },
+            {
+                id: 104,
+                titulo: "Combo TikTok Shop",
+                categoria: "TikTok Shop",
+                categorias: ["TikTok Shop"],
+                preco: 49.98,
+                precoOld: 83.92,
+                descCurta: "Os 4 ebooks de TikTok Shop da DataDesh em um pacote com desconto especial.",
+                descLonga: "Combo completo da linha TikTok Shop da DataDesh: TikTokShop Monetizar + Como Abrir Sua Loja + Criador ao Afiliado + Como Crescer Sua Conta. Ideal para quem quer dominar o TikTokShop do zero à monetização. Economia real de R$ 33,94 em relação à compra individual.",
+                beneficios: [
+                    "Os 4 ebooks de TikTok Shop",
+                    "Economia real de R$ 33,94",
+                    "Do cadastro à monetização",
+                    "Acesso imediato a todo o conteúdo"
+                ],
+                icone: "fa-brands fa-tiktok",
+                capa: "combo",
+                isCombo: true,
+                comboItens: ["TikTokShop Monetizar", "Como Abrir Sua Loja", "Criador ao Afiliado", "Como Crescer Sua Conta"],
                 destaque: false,
                 link: "#"
             },
             {
                 id: 105,
-                titulo: "Combo Cibersegurança Completo",
+                titulo: "Combo Cibersegurança",
                 categoria: "Cibersegurança",
                 categorias: ["Cibersegurança"],
                 preco: 49.98,
@@ -1741,54 +1814,6 @@
                 comboItens: ["Android Ciber Segurança", "Cibersegurança para Famílias"],
                 destaque: false,
                 link: "#"
-            },
-
-            // ══════════════════════════════════════════════════════
-            // 🚀 MARKETING DIGITAL
-            // ══════════════════════════════════════════════════════
-            {
-                id: 16,
-                titulo: "Marketing Digital para Afiliados",
-                categoria: "Marketing Digital",
-                categorias: ["Marketing Digital"],
-                preco: 17.98,
-                precoOld: 29.90,
-                descCurta: "Aprenda a ganhar comissões promovendo produtos de terceiros — do zero e com estratégia.",
-                descLonga: "Um guia introdutório sobre marketing de afiliados para quem quer começar a ganhar dinheiro promovendo produtos de terceiros. Você vai aprender como funciona o modelo, como escolher plataformas e produtos, como divulgar de forma ética, como criar conteúdo de recomendação e como acompanhar resultados. Inclui dicas de transparência e boas práticas.",
-                beneficios: [
-                    "Como funciona o marketing de afiliados",
-                    "Escolha de plataformas e produtos",
-                    "Estratégias de divulgação ética",
-                    "Acompanhamento de resultados e métricas"
-                ],
-                icone: "fa-solid fa-link",
-                capa: "empreendedor",
-                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20marketing%20de%20afiliados.png",
-                subtitulo: "Renda extra",
-                destaque: false,
-                link: "#"
-            },
-            {
-                id: 106,
-                titulo: "Combo Marketing Digital",
-                categoria: "Marketing Digital",
-                categorias: ["Marketing Digital"],
-                preco: 49.98,
-                precoOld: 29.90,
-                descCurta: "A linha completa de Marketing Digital da DataDesh com bônus exclusivos.",
-                descLonga: "Combo da linha Marketing Digital da DataDesh: Marketing Digital para Afiliados + bônus exclusivos em breve. Ideal para quem quer começar no marketing digital de forma ética e estratégica. Inclui acesso a atualizações futuras da linha.",
-                beneficios: [
-                    "Marketing Digital para Afiliados",
-                    "Acesso a atualizações futuras",
-                    "Bônus exclusivos",
-                    "Acesso imediato a todo o conteúdo"
-                ],
-                icone: "fa-solid fa-bullhorn",
-                capa: "combo",
-                isCombo: true,
-                comboItens: ["Marketing Digital para Afiliados"],
-                destaque: false,
-                link: "#"
             }
         ];
 
@@ -1798,14 +1823,23 @@
         const LOGO_URL = "https://raw.githubusercontent.com/datadeshsolucoes-design/Servicos-digitais/main/logo.jpeg";
 
         const CATEGORIAS = [
-            { key: "Todas", label: "Todas", icon: "fa-solid fa-layer-group" },
-            { key: "Destaque", label: "Destaque", icon: "fa-solid fa-star" },
-            { key: "Inteligência Artificial", label: "Inteligência Artificial", icon: "fa-solid fa-brain" },
-            { key: "Instagram", label: "Instagram", icon: "fa-brands fa-instagram" },
-            { key: "YouTube", label: "YouTube", icon: "fa-brands fa-youtube" },
-            { key: "TikTok Shop", label: "TikTok Shop", icon: "fa-brands fa-tiktok" },
-            { key: "Cibersegurança", label: "Cibersegurança", icon: "fa-solid fa-shield-halved" },
-            { key: "Marketing Digital", label: "Marketing Digital", icon: "fa-solid fa-bullhorn" }
+            { key: "Todas", label: "Todas", icon: "fa-solid fa-layer-group", subtitle: "Todos os e-books e combos em um só lugar" },
+            { key: "Destaque", label: "Destaque", icon: "fa-solid fa-star", subtitle: "Os mais procurados da DataDesh" },
+            { key: "Inteligência Artificial", label: "Inteligência Artificial", icon: "fa-solid fa-brain", subtitle: "Domine a IA do zero ao avançado" },
+            { key: "Instagram", label: "Instagram", icon: "fa-brands fa-instagram", subtitle: "Transforme seu perfil em máquina de vendas" },
+            { key: "YouTube", label: "YouTube", icon: "fa-brands fa-youtube", subtitle: "Cresça e monetize com vídeos" },
+            { key: "TikTok Shop", label: "TikTok Shop", icon: "fa-brands fa-tiktok", subtitle: "Do cadastro à monetização" },
+            { key: "Cibersegurança", label: "Cibersegurança", icon: "fa-solid fa-shield-halved", subtitle: "Proteja seu celular e sua família" }
+        ];
+
+        // Ordem das seções no tópico "Todas"
+        const ORDEM_SECOES = [
+            "Inteligência Artificial",
+            "Instagram",
+            "YouTube",
+            "TikTok Shop",
+            "Cibersegurança",
+            "Destaque"
         ];
 
         // ============================================================
@@ -1819,6 +1853,10 @@
         // ============================================================
         function formatarPreco(valor) {
             return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+        }
+
+        function getCategoriaMeta(key) {
+            return CATEGORIAS.find(c => c.key === key) || { icon: "fa-solid fa-tag", subtitle: "" };
         }
 
         // ============================================================
@@ -1841,73 +1879,45 @@
         }
 
         // ============================================================
-        // RENDERIZAR CARDS
+        // RENDERIZAR CARD INDIVIDUAL (RETORNA HTML)
         // ============================================================
-        function renderizarCards() {
-            const grid = document.getElementById("ebooksGrid");
-            const countEl = document.getElementById("resultsCount");
+        function renderizarCardHTML(eb) {
+            let cardClasses = "ebook-card";
+            if (eb.destaque) cardClasses += " featured";
+            if (eb.isCombo) cardClasses += " combo";
 
-            let filtrados = ebooks.filter(eb => {
-                const matchCategoria = categoriaAtiva === "Todas" || eb.categorias.includes(categoriaAtiva);
-                const matchBusca = termoBusca === "" ||
-                    eb.titulo.toLowerCase().includes(termoBusca.toLowerCase()) ||
-                    eb.descCurta.toLowerCase().includes(termoBusca.toLowerCase());
-                return matchCategoria && matchBusca;
-            });
+            const precoOldHTML = eb.precoOld
+                ? `<span class="price-old">${formatarPreco(eb.precoOld)}</span>`
+                : "";
 
-            countEl.textContent = filtrados.length + (filtrados.length === 1 ? " e-book encontrado" : " e-books encontrados");
+            const economia = eb.precoOld ? (eb.precoOld - eb.preco).toFixed(2).replace('.', ',') : null;
+            const economiaHTML = economia && eb.isCombo
+                ? `<span class="combo-economy">💰 Economize R$ ${economia}</span>`
+                : "";
 
-            if (filtrados.length === 0) {
-                grid.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <h3>Nenhum e-book encontrado</h3>
-                        <p>Tente outra busca ou selecione outra categoria.</p>
-                    </div>
-                `;
-                return;
-            }
+            const capaHTML = eb.isCombo
+                ? `<div class="ebook-cover-combo">
+                        <div class="combo-brand">
+                            <img src="${LOGO_URL}" alt="DataDesh">
+                            DataDesh
+                        </div>
+                        <div class="combo-middle">
+                            <i class="${eb.icone} combo-icon"></i>
+                            <div class="combo-title">${eb.titulo}</div>
+                            <div class="combo-subtitle">${eb.comboItens.length} ebooks em 1</div>
+                        </div>
+                        <div class="combo-bottom">
+                            <span>E-books • PDF</span>
+                            <span class="combo-badge">COMBO</span>
+                        </div>
+                    </div>`
+                : `<div class="ebook-cover-img">
+                        <img src="${eb.imagem}" alt="Capa do e-book ${eb.titulo}" loading="lazy" 
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\\'aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;padding:24px 20px;color:white;position:relative;overflow:hidden;background:linear-gradient(135deg,#0f766e,#7c3aed);\\'><div style=\\'font-size:1.15rem;font-weight:900;line-height:1.15;\\'>${eb.titulo}</div><div style=\\'font-size:0.7rem;opacity:0.85;text-transform:uppercase;\\'>${eb.subtitulo || ''}</div></div>';">
+                    </div>`;
 
-            grid.innerHTML = "";
-            filtrados.forEach(eb => {
-                const card = document.createElement("article");
-                let cardClasses = "ebook-card";
-                if (eb.destaque) cardClasses += " featured";
-                if (eb.isCombo) cardClasses += " combo";
-                card.className = cardClasses;
-
-                const precoOldHTML = eb.precoOld
-                    ? `<span class="price-old">${formatarPreco(eb.precoOld)}</span>`
-                    : "";
-
-                const economia = eb.precoOld ? (eb.precoOld - eb.preco).toFixed(2).replace('.', ',') : null;
-                const economiaHTML = economia && eb.isCombo
-                    ? `<span class="combo-economy">💰 Economize R$ ${economia}</span>`
-                    : "";
-
-                // Se for combo, renderiza capa especial; senão, imagem normal
-                const capaHTML = eb.isCombo
-                    ? `<div class="ebook-cover-combo">
-                            <div class="combo-brand">
-                                <img src="${LOGO_URL}" alt="DataDesh">
-                                DataDesh
-                            </div>
-                            <div class="combo-middle">
-                                <i class="${eb.icone} combo-icon"></i>
-                                <div class="combo-title">${eb.titulo}</div>
-                                <div class="combo-subtitle">${eb.comboItens.length} ebooks em 1</div>
-                            </div>
-                            <div class="combo-bottom">
-                                <span>E-books • PDF</span>
-                                <span class="combo-badge">COMBO</span>
-                            </div>
-                        </div>`
-                    : `<div class="ebook-cover-img">
-                            <img src="${eb.imagem}" alt="Capa do e-book ${eb.titulo}" loading="lazy" 
-                                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\\'aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;padding:24px 20px;color:white;position:relative;overflow:hidden;background:linear-gradient(135deg,#0f766e,#7c3aed);\\'><div style=\\'font-size:1.15rem;font-weight:900;line-height:1.15;\\'>${eb.titulo}</div><div style=\\'font-size:0.7rem;opacity:0.85;text-transform:uppercase;\\'>${eb.subtitulo || ''}</div></div>';">
-                        </div>`;
-
-                card.innerHTML = `
+            return `
+                <article class="${cardClasses}">
                     ${capaHTML}
                     <div class="ebook-info">
                         <span class="ebook-category"><i class="fa-solid fa-tag"></i> ${eb.categoria}</span>
@@ -1924,11 +1934,125 @@
                             </button>
                         </div>
                     </div>
-                `;
+                </article>
+            `;
+        }
 
-                card.querySelector(".btn-details").addEventListener("click", () => abrirModal(eb.id));
-                grid.appendChild(card);
+        // ============================================================
+        // RENDERIZAR CARDS
+        // ============================================================
+        function renderizarCards() {
+            const container = document.getElementById("catalogoContainer");
+            const countEl = document.getElementById("resultsCount");
+
+            // FILTRO
+            let filtrados = ebooks.filter(eb => {
+                const matchCategoria = categoriaAtiva === "Todas" || eb.categorias.includes(categoriaAtiva);
+                const matchBusca = termoBusca === "" ||
+                    eb.titulo.toLowerCase().includes(termoBusca.toLowerCase()) ||
+                    eb.descCurta.toLowerCase().includes(termoBusca.toLowerCase());
+                return matchCategoria && matchBusca;
             });
+
+            countEl.textContent = filtrados.length + (filtrados.length === 1 ? " e-book encontrado" : " e-books encontrados");
+
+            if (filtrados.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h3>Nenhum e-book encontrado</h3>
+                        <p>Tente outra busca ou selecione outra categoria.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // SE FOR "TODAS" → organiza em seções por categoria
+            if (categoriaAtiva === "Todas") {
+                renderizarPorSecoes(container, filtrados);
+            } else {
+                // SE FOR UMA CATEGORIA ESPECÍFICA → todos os cards em um grid só
+                container.innerHTML = `
+                    <div class="ebooks-grid">
+                        ${filtrados.map(eb => renderizarCardHTML(eb)).join("")}
+                    </div>
+                `;
+            }
+
+            // Adiciona eventos a todos os botões "Ver detalhes"
+            container.querySelectorAll(".btn-details").forEach(btn => {
+                btn.addEventListener("click", () => abrirModal(parseInt(btn.dataset.id)));
+            });
+        }
+
+        // ============================================================
+        // RENDERIZAR EM SEÇÕES (para o tópico "Todas")
+        // ============================================================
+        function renderizarPorSecoes(container, todos) {
+            // 1. Separa combos de não-combos
+            const combos = todos.filter(eb => eb.isCombo);
+            const naoCombos = todos.filter(eb => !eb.isCombo);
+
+            // 2. Agrupa não-combos por categoria (usando a primeira categoria do array)
+            const porCategoria = {};
+            naoCombos.forEach(eb => {
+                const cat = eb.categoria;
+                if (!porCategoria[cat]) porCategoria[cat] = [];
+                porCategoria[cat].push(eb);
+            });
+
+            let html = "";
+
+            // 3. Seção de COMBOS PREMIUM (se houver combos)
+            if (combos.length > 0) {
+                const combosOrdenados = [...combos].sort((a, b) => a.id - b.id);
+                html += `
+                    <div class="category-section">
+                        <div class="category-section-header">
+                            <div class="category-section-icon premium">
+                                <i class="fa-solid fa-gift"></i>
+                            </div>
+                            <div>
+                                <h3 class="category-section-title premium">Combos Premium</h3>
+                                <div class="category-section-subtitle">Economize comprando os e-books em pacote</div>
+                            </div>
+                            <span class="category-section-count">${combosOrdenados.length} combos</span>
+                        </div>
+                        <div class="combos-grid">
+                            ${combosOrdenados.map(eb => renderizarCardHTML(eb)).join("")}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // 4. Seções por categoria (na ordem definida)
+            ORDEM_SECOES.forEach(catKey => {
+                const itens = porCategoria[catKey];
+                if (!itens || itens.length === 0) return;
+
+                const meta = getCategoriaMeta(catKey);
+                const iconClass = catKey === "Destaque" ? "destaque" : "";
+
+                html += `
+                    <div class="category-section">
+                        <div class="category-section-header">
+                            <div class="category-section-icon ${iconClass}">
+                                <i class="${meta.icon}"></i>
+                            </div>
+                            <div>
+                                <h3 class="category-section-title">${catKey}</h3>
+                                <div class="category-section-subtitle">${meta.subtitle}</div>
+                            </div>
+                            <span class="category-section-count">${itens.length} ${itens.length === 1 ? 'ebook' : 'ebooks'}</span>
+                        </div>
+                        <div class="ebooks-grid">
+                            ${itens.map(eb => renderizarCardHTML(eb)).join("")}
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
         }
 
         // ============================================================
@@ -1949,7 +2073,6 @@
                 .map(b => `<li><i class="fa-solid fa-check"></i> ${b}</li>`)
                 .join("");
 
-            // Se for combo, capa especial e lista de itens
             const capaHTML = eb.isCombo
                 ? `<div class="modal-cover combo-cover">
                         <div class="combo-brand">
@@ -2194,7 +2317,7 @@
             "@context": "https://schema.org",
             "@type": "ItemList",
             "name": "Livraria Digital DataDesh",
-            "description": "E-books práticos sobre IA, Instagram, YouTube, TikTok Shop, cibersegurança e marketing digital.",
+            "description": "E-books práticos sobre IA, Instagram, YouTube, TikTok Shop e cibersegurança.",
             "itemListElement": ebooks.map((eb, idx) => ({
                 "@type": "ListItem",
                 "position": idx + 1,
