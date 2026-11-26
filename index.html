@@ -29,6 +29,7 @@
             --accent: #f59e0b;
             --combo: #8b5cf6;
             --blackfriday: #dc2626;
+            --cover-bg: #f8fafc;
             --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
             --shadow-glow: 0 0 60px rgba(15, 118, 110, 0.06);
             --radius: 16px;
@@ -606,14 +607,16 @@
             animation: blackFridayPulse 2.5s ease-in-out infinite;
         }
 
+        /* FUNDO CLARO PARA AS CAPAS */
         .ebook-cover-img {
             aspect-ratio: 4/5;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #0f766e 0%, #7c3aed 100%);
+            background: var(--cover-bg);
             display: flex;
             align-items: center;
             justify-content: center;
+            border-bottom: 1px solid var(--border);
         }
         .ebook-cover-img img {
             width: 100%;
@@ -621,21 +624,22 @@
             object-fit: contain;
             display: block;
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            padding: 4px;
+            padding: 8px;
         }
         .ebook-card:hover .ebook-cover-img img {
             transform: scale(1.03);
         }
 
-        /* Capa dos combos */
+        /* Capa dos combos — fundo claro também */
         .ebook-cover-combo-img {
             aspect-ratio: 4/5;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #7c3aed 0%, #0f766e 100%);
+            background: var(--cover-bg);
             display: flex;
             align-items: center;
             justify-content: center;
+            border-bottom: 1px solid var(--border);
         }
         .ebook-cover-combo-img img {
             width: 100%;
@@ -643,7 +647,7 @@
             object-fit: contain;
             display: block;
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            padding: 4px;
+            padding: 8px;
         }
         .ebook-card:hover .ebook-cover-combo-img img {
             transform: scale(1.03);
@@ -847,13 +851,14 @@
             overflow: hidden;
             position: relative;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(135deg, #0f766e 0%, #7c3aed 100%);
+            background: var(--cover-bg);
         }
         .modal-cover img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             display: block;
+            padding: 8px;
         }
 
         .modal-price-box {
@@ -1315,7 +1320,7 @@
         // ============================================================
         const ebooks = [
             // ══════════════════════════════════════════════════════
-            // ⭐ DESTAQUE (2 ebooks) — Preço 17,98
+            // ⭐ DESTAQUE (3 ebooks) — Preço 17,98
             // ══════════════════════════════════════════════════════
             {
                 id: 1,
@@ -1358,6 +1363,28 @@
                 capa: "gestao",
                 imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/Android%20CiberSeguran%C3%A7a.png",
                 subtitulo: "Proteger · Prevenir · Reagir",
+                destaque: true,
+                link: "#"
+            },
+            {
+                id: 15,
+                titulo: "Cibersegurança para Famílias",
+                categoria: "Cibersegurança",
+                categorias: ["Destaque", "Cibersegurança"],
+                preco: 14.98,
+                precoOld: 39.90,
+                descCurta: "Proteja crianças, adolescentes e idosos no ambiente digital com orientações práticas e acessíveis.",
+                descLonga: "Um guia dedicado à proteção digital de famílias. Você vai aprender a configurar controles parentais, orientar crianças e adolescentes sobre riscos online, proteger idosos contra golpes comuns, criar combinados familiares sobre uso de tecnologia e agir em situações de incidente. Linguagem acessível e exemplos do cotidiano brasileiro.",
+                beneficios: [
+                    "Configuração de controles parentais",
+                    "Orientação para crianças e adolescentes",
+                    "Proteção de idosos contra golpes",
+                    "Combinados familiares sobre tecnologia"
+                ],
+                icone: "fa-solid fa-users",
+                capa: "gestao",
+                imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20Ciberseguran%C3%A7a%20para%20familias%20guia%20Pr%C3%A1tico.png",
+                subtitulo: "Proteção familiar",
                 destaque: true,
                 link: "#"
             },
@@ -1643,32 +1670,6 @@
             },
 
             // ══════════════════════════════════════════════════════
-            // 🛡️ CIBERSEGURANÇA — Preço 14,98
-            // ══════════════════════════════════════════════════════
-            {
-                id: 15,
-                titulo: "Cibersegurança para Famílias",
-                categoria: "Cibersegurança",
-                categorias: ["Destaque", "Cibersegurança"],
-                preco: 14.98,
-                precoOld: 39.90,
-                descCurta: "Proteja crianças, adolescentes e idosos no ambiente digital com orientações práticas e acessíveis.",
-                descLonga: "Um guia dedicado à proteção digital de famílias. Você vai aprender a configurar controles parentais, orientar crianças e adolescentes sobre riscos online, proteger idosos contra golpes comuns, criar combinados familiares sobre uso de tecnologia e agir em situações de incidente. Linguagem acessível e exemplos do cotidiano brasileiro.",
-                beneficios: [
-               "Configuração de controles parentais",
-               "Orientação para crianças e adolescentes",
-                "Proteção de idosos contra golpes",
-                "Combinados familiares sobre tecnologia"
-               ],
-               icone: "fa-solid fa-users",
-               capa: "gestao",
-               imagem: "https://raw.githubusercontent.com/datadeshsolucoes-design/ebooks/main/capa%20Ciberseguran%C3%A7a%20para%20familias%20guia%20Pr%C3%A1tico.png",
-               subtitulo: "Proteção familiar",
-               destaque: true,
-               link: "#"
-               },
-
-            // ══════════════════════════════════════════════════════
             // 🎁 COMBOS PREMIUM — Preço 29,98
             // ══════════════════════════════════════════════════════
             {
@@ -1892,7 +1893,7 @@
             const capaHTML = `<div class="${eb.isCombo ? 'ebook-cover-combo-img' : 'ebook-cover-img'}">
                 <span class="bf-card-badge"><i class="fa-solid fa-fire"></i> Black Friday</span>
                 <img src="${eb.imagem}" alt="Capa do ${eb.titulo}" loading="lazy" 
-                     onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\\'aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:space-between;padding:24px 20px;color:white;position:relative;overflow:hidden;background:linear-gradient(135deg,#0f766e,#7c3aed);\\'><div style=\\'font-size:1.15rem;font-weight:900;line-height:1.15;\\'>${eb.titulo}</div><div style=\\'font-size:0.7rem;opacity:0.85;text-transform:uppercase;\\'>${eb.isCombo ? eb.comboItens.length + ' e-books em 1' : (eb.subtitulo || '')}</div></div>';">
+                     onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\\'aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:space-between;padding:24px 20px;color:var(--text);position:relative;overflow:hidden;background:var(--cover-bg);\\'><div style=\\'font-size:1.15rem;font-weight:900;line-height:1.15;\\'>${eb.titulo}</div><div style=\\'font-size:0.7rem;opacity:0.85;text-transform:uppercase;color:var(--text-light);\\'>${eb.isCombo ? eb.comboItens.length + ' e-books em 1' : (eb.subtitulo || '')}</div></div>';">
             </div>`;
 
             return `
