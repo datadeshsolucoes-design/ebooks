@@ -728,19 +728,26 @@
             border-radius: 50px;
             margin-left: auto;
         }
+
+        /* ═══════════════════════════════════════════════════════
+           AÇÕES DO CARD — 2 botões: Comprar agora + Ver detalhes
+           ═══════════════════════════════════════════════════════ */
         .ebook-actions {
             display: flex;
-            gap: 8px;
+            gap: 6px;
+            margin-top: 4px;
         }
-        .btn-details {
+
+        /* Botão COMPRAR — destaque principal */
+        .btn-buy-card {
             flex: 1;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--blackfriday), #991b1b);
             color: white;
             border: none;
             border-radius: 50px;
-            padding: 9px 14px;
+            padding: 10px 12px;
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
@@ -748,16 +755,60 @@
             justify-content: center;
             gap: 6px;
             font-family: inherit;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.25);
+            position: relative;
+            overflow: hidden;
         }
-        .ebook-card.combo .btn-details {
-            background: linear-gradient(135deg, var(--combo), #6d28d9);
+        .btn-buy-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.6s ease;
+        }
+        .btn-buy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(220, 38, 38, 0.4);
+        }
+        .btn-buy-card:hover::before {
+            left: 100%;
+        }
+
+        /* Botão VER DETALHES — secundário, mais discreto */
+        .btn-details {
+            background: var(--surface);
+            color: var(--text);
+            border: 1.5px solid var(--border);
+            border-radius: 50px;
+            padding: 10px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            font-family: inherit;
+            flex-shrink: 0;
+            white-space: nowrap;
         }
         .btn-details:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(15, 118, 110, 0.04);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(15, 118, 110, 0.25);
         }
-        .ebook-card.combo .btn-details:hover {
-            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
+
+        /* Combo: botão comprar em roxo */
+        .ebook-card.combo .btn-buy-card {
+            background: linear-gradient(135deg, var(--combo), #6d28d9);
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+        }
+        .ebook-card.combo .btn-buy-card:hover {
+            box-shadow: 0 8px 28px rgba(139, 92, 246, 0.4);
         }
 
         .empty-state {
@@ -982,7 +1033,7 @@
         .modal-meta-item i { color: var(--primary); }
 
         .btn-buy {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--blackfriday), #991b1b);
             color: white;
             border: none;
             border-radius: 50px;
@@ -996,16 +1047,17 @@
             justify-content: center;
             gap: 10px;
             text-decoration: none;
-            box-shadow: 0 8px 24px rgba(15, 118, 110, 0.2);
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.25);
             font-family: inherit;
             width: 100%;
         }
         .btn-buy.combo-buy {
             background: linear-gradient(135deg, var(--combo), #6d28d9);
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
         }
         .btn-buy:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 36px rgba(15, 118, 110, 0.3);
+            box-shadow: 0 12px 36px rgba(220, 38, 38, 0.4);
         }
         .btn-buy.combo-buy:hover {
             box-shadow: 0 12px 36px rgba(139, 92, 246, 0.4);
@@ -1171,6 +1223,8 @@
             .combo-economy { display: none; }
             .category-section-header { flex-wrap: wrap; }
             .category-section-count { margin-left: 0; }
+            .btn-buy-card { font-size: 0.75rem; padding: 9px 10px; }
+            .btn-details { font-size: 0.7rem; padding: 9px 10px; }
         }
     </style>
 </head>
@@ -1320,9 +1374,6 @@
         // LINKS DE VENDA: KIWIFY
         // ============================================================
         const ebooks = [
-            // ══════════════════════════════════════════════════════
-            // ⭐ DESTAQUE (3 ebooks) — Preço 17,98
-            // ══════════════════════════════════════════════════════
             {
                 id: 1,
                 titulo: "TikTokShop Monetizar",
@@ -1389,10 +1440,6 @@
                 destaque: true,
                 link: "https://pay.kiwify.com.br/nv6yPsM"
             },
-
-            // ══════════════════════════════════════════════════════
-            // 🧠 INTELIGÊNCIA ARTIFICIAL — Preço 14,98
-            // ══════════════════════════════════════════════════════
             {
                 id: 3,
                 titulo: "Como Ganhar Dinheiro com Inteligência Artificial em 2026",
@@ -1459,10 +1506,6 @@
                 destaque: false,
                 link: "https://pay.kiwify.com.br/rRZKgKK"
             },
-
-            // ══════════════════════════════════════════════════════
-            // 📸 INSTAGRAM — Preço 14,98
-            // ══════════════════════════════════════════════════════
             {
                 id: 6,
                 titulo: "Instagram que Vende",
@@ -1529,10 +1572,6 @@
                 destaque: false,
                 link: "https://pay.kiwify.com.br/qm0taiu"
             },
-
-            // ══════════════════════════════════════════════════════
-            // ▶️ YOUTUBE — Preço 14,98
-            // ══════════════════════════════════════════════════════
             {
                 id: 9,
                 titulo: "YouTube do Zero para Empreendedores",
@@ -1599,10 +1638,6 @@
                 destaque: false,
                 link: "https://pay.kiwify.com.br/96j29pR"
             },
-
-            // ══════════════════════════════════════════════════════
-            // 🛒 TIKTOK SHOP — Preço 14,98
-            // ══════════════════════════════════════════════════════
             {
                 id: 12,
                 titulo: "Como Abrir Sua Loja no TikTok Shop",
@@ -1669,10 +1704,6 @@
                 destaque: false,
                 link: "https://pay.kiwify.com.br/SJnraEB"
             },
-
-            // ══════════════════════════════════════════════════════
-            // 🎁 COMBOS PREMIUM — Preço 29,98
-            // ══════════════════════════════════════════════════════
             {
                 id: 100,
                 titulo: "Combo Destaque",
@@ -1828,7 +1859,6 @@
             { key: "Cibersegurança", label: "Cibersegurança", icon: "fa-solid fa-shield-halved", subtitle: "Proteja seu celular e sua família" }
         ];
 
-        // Ordem das seções no tópico "Todas" — DESTAQUES PRIMEIRO
         const ORDEM_SECOES = [
             "Destaque",
             "Inteligência Artificial",
@@ -1875,7 +1905,7 @@
         }
 
         // ============================================================
-        // RENDERIZAR CARD INDIVIDUAL
+        // RENDERIZAR CARD INDIVIDUAL — COM 2 BOTÕES
         // ============================================================
         function renderizarCardHTML(eb) {
             let cardClasses = "ebook-card";
@@ -1910,8 +1940,11 @@
                             ${economiaHTML}
                         </div>
                         <div class="ebook-actions">
-                            <button class="btn-details" data-id="${eb.id}">
-                                <i class="fa-regular fa-eye"></i> Ver detalhes
+                            <a href="${eb.link}" target="_blank" rel="noopener" class="btn-buy-card">
+                                <i class="fa-solid fa-cart-shopping"></i> Comprar agora
+                            </a>
+                            <button class="btn-details" data-id="${eb.id}" title="Ver detalhes">
+                                <i class="fa-regular fa-eye"></i> Detalhes
                             </button>
                         </div>
                     </div>
@@ -1964,7 +1997,6 @@
 
         // ============================================================
         // RENDERIZAR EM SEÇÕES (Todas)
-        // Ordem: DESTAQUES → Categorias → COMBOS NO FINAL
         // ============================================================
         function renderizarPorSecoes(container, todos) {
             const combos = todos.filter(eb => eb.isCombo);
@@ -1979,7 +2011,6 @@
 
             let html = "";
 
-            // Seções por categoria (Destaques primeiro)
             ORDEM_SECOES.forEach(catKey => {
                 const itens = porCategoria[catKey];
                 if (!itens || itens.length === 0) return;
@@ -2006,7 +2037,6 @@
                 `;
             });
 
-            // COMBOS PREMIUM NO FINAL
             if (combos.length > 0) {
                 const combosOrdenados = [...combos].sort((a, b) => a.id - b.id);
                 html += `
@@ -2300,7 +2330,7 @@
         };
         const scriptLd = document.createElement('script');
         scriptLd.type = 'application/ld+json';
-        scriptLd.textContent = JSON.stringify(jsonLd);
+        scriptLd.textContent = JSON.stringify(scriptLd, null, 2);
         document.head.appendChild(scriptLd);
     </script>
 
